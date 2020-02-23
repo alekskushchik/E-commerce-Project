@@ -45,6 +45,10 @@ header {
     max-width: 1180px;
     padding-top: 26px;
 }
+a {
+    color: #000;
+    text-decoration: none;
+}
 .top-bar {
     display: flex;
     flex-direction: row;
@@ -91,6 +95,13 @@ header {
 .navbar ul li:first-child {
     margin-left: 0;
 }
+.navbar a {
+    color: #000;
+    text-decoration: none;
+}
+.navbar a:hover {
+    color: #f14a58;
+}
 #search {
     position: relative;
 }
@@ -109,6 +120,7 @@ input {
     transform: translate(0, -50%);
     z-index: 1;
 }
+
 .top-section {
     display: flex;
     flex-direction: row;
@@ -119,6 +131,7 @@ article {
 }
 article:first-child {
     border-left: none;
+    margin-right: -1px;
 }
 article:last-child {
     border-right: none;
@@ -183,14 +196,14 @@ p.new-icon {
     justify-content: space-around;
     align-items: center;
 }
-.middle-section__items div:nth-child(5) :first-child{
+.middle-section__items div:nth-child(5) :first-child {
     width: 92px;
     position: absolute;
     top: 140px;
     right: 253px;
     z-index: 1;
 }
-.middle-section__items div:nth-child(5) :nth-child(2){
+.middle-section__items div:nth-child(5) :nth-child(2) {
     font-family: 'Roboto-Regular', sans-serif;
     font-size: 26px;   
     letter-spacing: .03em;
@@ -243,18 +256,23 @@ p.items__price {
     margin-bottom: 162px;
     text-align: center;
 }
-.botom-section__items {
+.bottom-section__items {
     position: relative;
-    margin: 50px 0 56px;
+    margin: 50px auto 0;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
 }
-.botom-section__items img {
+.bottom-section__items img {
     margin: 40px 0 30px;
     width: 240px;
 }
 a.bottom-section__button {
+    display: inline-block;
+    position: relative;
+    left: 50%;
+    transform: translate(-50%, 0);
+    margin: 0 auto 100px;
     font-family: 'OpenSans-Bold', sans-serif;
     font-size: 24px;   
     letter-spacing: .03em;
@@ -263,6 +281,10 @@ a.bottom-section__button {
     text-decoration: none;
     border: 1px solid #e5e5e5;
     box-sizing: border-box;
+}
+a.bottom-section__button:hover {
+    color: #f14a58;
+    border: 1px solid #f14a58;
 }
 .top-footer {
     display: flex;

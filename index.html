@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Home</title>
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/style.css">
 </head>
@@ -12,23 +12,23 @@
 <body>
     <header>
         <div class="top-bar">
-            <div id="logo">Template</div>
+            <div id="logo"><a href="index.html">Template</a></div>
             <div class="right-content">
               <span>E-mail sign up</span>
-              <div class="bag"><img src="img/desktop/ico_bag.png" alt="ico_bag">Bag (0)</div>  
+              <div class="bag"><img src="img/desktop/ico_bag.png" alt="ico_bag">Bag (<span id="amount">0</span>)</div>
             </div>
         </div>
 
         <nav class="navbar">
             <ul>
-                <li>Women</li>
-                <li>Men</li>
-                <li>Handbags</li>
-                <li>Accessories</li>
-                <li>Sale</li>
-                <li>New Arrivals</li>
-                <li>Clearance</li>
-                <li>Store Locator</li>
+                <li><a href="#">Women</a></li>
+                <li><a href="#">Men</a></li>
+                <li><a href="#">Handbags</a></li>
+                <li><a href="#">Accessories</a></li>
+                <li><a href="#">Sale</a></li>
+                <li><a href="#">New Arrivals</a></li>
+                <li><a href="#">Clearance</a></li>
+                <li><a href="#">Store Locator</a></li>
             </ul>
             <div id="search">
                 <input type="text" placeholder="Style name">
@@ -43,7 +43,7 @@
                 <img src="img/desktop/black.png" alt=""><h1>Nike Red</h1>
             </article>
             <article>
-                <img src="img/desktop/photo.png" alt=""><h1>Caps & Hats</h1><p>Sale -50%</p>
+                <a href="catalog.html"><img src="img/desktop/photo.png" alt=""><h1>Caps & Hats</h1><p>Sale -50%</p></a>
             </article>
         </div>
         
@@ -82,7 +82,7 @@
 
         <div class="bottom-section">
             <h1>New arrivals</h1>
-            <div class="botom-section__items">
+            <div class="bottom-section__items">
                 <div>
                     <p class="new-icon">new</p>
                     <img src="img/desktop/photo-1.png" alt="">
@@ -106,8 +106,8 @@
                     <p class="items__price">£80.60</p>
                 </div>
             </div>    
-            <a class="bottom-section__button" href="#">All arrivals</a>    
         </div>
+        <a class="bottom-section__button" href="#">All arrivals</a>
     </main>
 
     <footer>
