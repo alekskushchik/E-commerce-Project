@@ -326,6 +326,10 @@ a.bottom-section__button:hover {
     padding-left: 57px;
     border-right: 0;
 }
+.contact-links span {
+    font-family: 'Roboto-Regular', sans-serif;
+    font-size: 14px;
+}
 .contact-links div:first-child, .contact-links div:nth-child(2) {
     width: 50%;
 }
@@ -338,11 +342,19 @@ a.bottom-section__button:hover {
     margin-right: 25px;
 }
 .bottom-footer {
+    height: 80px;
     position: relative;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+    align-content: center;
+    font-family: 'Roboto-Bold', sans-serif;
+    font-size: 12px;
+}
+.bottom-footer span:first-child {
+    font-family: 'OpenSans-Bold', sans-serif;
+    font-size: 18px;
 }
 .share-bgr {
     position: absolute;
