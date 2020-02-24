@@ -40,8 +40,9 @@
 }
 
 body {
-      margin: 0 auto;
+    margin: 0 auto;
       padding: 0;
+      border: 0;
       max-width: 1300px;
       box-sizing: content-box;
 }

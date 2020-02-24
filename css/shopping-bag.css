@@ -1,0 +1,16 @@
+.shopping-bag {
+    margin-top: 30px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-row-gap: 74px;
+    grid-column-gap: 74px;
+}
+.shopping-bag__item {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+.shopping-bag__item__info {
+    margin-left: 25px;
+    text-align: left;
+}
