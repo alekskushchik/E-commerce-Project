@@ -43,6 +43,36 @@ main p  {
     top: -5px;
     position: absolute;
 }
+.catalog-image {
+    position: relative;
+    background: #000;  /* У блока, оборачивающего картинку при наведении будет просвечивать черный фон */
+}
+.catalog-image a img {
+    opacity: 1;
+    transition: opacity 124ms linear;
+    width: 100%;
+    height: auto;
+    display: block;
+}
+.catalog-image:hover img {
+    opacity: 0.6;
+}
+.catalog-image p {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    font-family: 'OpenSans-Bold', sans-serif;
+    font-size: 22px;
+    letter-spacing: 0.03em;
+    color: #f14a58;
+    transform: translate(-50%, -50%);
+    visibility: hidden;
+    opacity: 0;
+}
+.catalog-image:hover p {
+    visibility: visible;
+    opacity: 1;
+}
 .catalog-bottom-section {
     max-width: 1300px;
     display: grid;
