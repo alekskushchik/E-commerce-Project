@@ -7,9 +7,9 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Shopping bag</title>
     <link rel="stylesheet" href="css/normalize.css">
-    <link rel="stylesheet" href="css/shopping-bag.css">
     <link rel="stylesheet" href="css/item.css">
     <link rel="stylesheet" href="css/catalog.css">
+    <link rel="stylesheet" href="css/shopping-bag.css">
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -44,11 +44,13 @@
 </header>
 <main>
     <div class="shopping-bag">
+
         <div class="shopping-bag__item">
-            <div class="shopping-bag__item__image">
-                <img src="img/desktop/photo-1.png" alt="">
+            <p class="new-icon">new</p>
+            <div class="shopping-bag__image">
+                <a href=""><img src="img/desktop/photo-1.png" alt=""><p>View item</p></a>
             </div>
-            <div class="shopping-bag__item__info">
+            <div class="shopping-bag__info">
                 <h4>Only Skinny Jeans</h4>
                 <p>£65.50</p>
                 <p>Color: <span>Phillipa wash</span></p>
@@ -59,10 +61,10 @@
         </div>
 
         <div class="shopping-bag__item">
-            <div class="shopping-bag__item__image">
-                <img src="img/desktop/photo-9.png" alt="">
+            <div class="shopping-bag__image">
+                <a href=""><img src="img/desktop/photo-9.png" alt=""><p>View item</p></a>
             </div>
-            <div class="shopping-bag__item__info">
+            <div class="shopping-bag__info">
                 <h4>Only Skinny Jeans</h4>
                 <p>£65.50</p>
                 <p>Color: <span>Phillipa wash</span></p>
@@ -73,10 +75,10 @@
         </div>
 
         <div class="shopping-bag__item">
-            <div class="shopping-bag__item__image">
-                <img src="img/desktop/photo-6.png" alt="">
+            <div class="shopping-bag__image">
+                <a href=""><img src="img/desktop/photo-6.png" alt=""><p>View item</p></a>
             </div>
-            <div class="shopping-bag__item__info">
+            <div class="shopping-bag__info">
                 <h4>Only Skinny Jeans</h4>
                 <p>£65.50</p>
                 <p>Color: <span>Phillipa wash</span></p>
@@ -87,18 +89,27 @@
         </div>
 
         <div class="shopping-bag__item">
-            <div class="shopping-bag__item__image">
-                <img src="img/desktop/photo-2.png" alt="">
+            <div class="shopping-bag__image">
+                <a href=""><img src="img/desktop/photo-2.png" alt=""><p>View item</p></a>
             </div>
-            <div class="shopping-bag__item__info">
+            <div class="shopping-bag__info">
                 <h4>Only Skinny Jeans</h4>
                 <p>£65.50</p>
                 <p>Color: <span>Phillipa wash</span></p>
                 <p>Size: <span>UK 17</span></p>
-                <p>Quantity: &nbsp;<img src="img/desktop/minus.png" alt="">&nbsp;<span>1</span>&nbsp;<img src="img/desktop/plus.png" alt=""></p>
+                <p>Quantity: &nbsp;<img src="img/desktop/minus.png" alt="">&nbsp;&nbsp;<span>1</span>&nbsp;&nbsp;<img src="img/desktop/plus.png" alt=""></p>
                 <a href="#">Remove item</a>
             </div>
         </div>
+
+    </div>
+    <div class="promotion-bar">
+        <p>You've qualified for Free UK Next Day Delivery on your order. Don't forget to enter the code <span>nexday</span> at checkout</p>
+    </div>
+    <a class="bottom-section__button" href="#">Checkout</a>
+    <div id="bag-total">
+        <p>Applied discount: <span>£15.00</span></p>
+        <p>Total price: <span>£236.50</span></p>
     </div>
 </main>
 <footer>

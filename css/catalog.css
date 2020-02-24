@@ -1,3 +1,6 @@
+.navbar {
+    border-bottom: 1px solid var(--grey-color);
+}
 main {
     margin: 0 auto;
     max-width: 1180px;
@@ -30,7 +33,6 @@ main p  {
     letter-spacing: .03em;
 }
 .catalog p {
-    position: relative;
     font-family: 'Roboto-Regular', sans-serif;
     font-size: 14px;
     letter-spacing: .03em;
@@ -45,13 +47,12 @@ main p  {
 }
 .catalog-image {
     position: relative;
-    background: #000;  /* У блока, оборачивающего картинку при наведении будет просвечивать черный фон */
+    background: #000;
 }
 .catalog-image a img {
     opacity: 1;
     transition: opacity 124ms linear;
-    width: 100%;
-    height: auto;
+    height: 100%;
     display: block;
 }
 .catalog-image:hover img {
