@@ -1,0 +1,26 @@
+.bottom-bar {
+    margin: 0;
+    height: 46px;
+    border-bottom: 1px solid #e5e5e5;
+}
+.bottom-bar a {
+    font-family: 'OpenSans-Bold', sans-serif;
+    font-size: 16px;
+    letter-spacing: .03em;
+}
+.item {
+    margin-top: 60px;
+    display: flex;
+    flex-direction: row;
+}
+.item-image__thumb {
+    margin: 0;
+    display: flex;
+    flex-direction: row;
+}
+.item-image__thumb img:hover {
+    cursor: pointer;
+    transition: 0.3s;
+    opacity: .6;
+    background: #000000;
+}
