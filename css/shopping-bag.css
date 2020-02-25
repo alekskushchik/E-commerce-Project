@@ -34,7 +34,7 @@
     font-family: 'OpenSans-Bold', sans-serif;
     font-size: 22px;
     letter-spacing: 0.03em;
-    color: var(--red-color);
+    color: #f14a58;
     transform: translate(-50%, -50%);
     visibility: hidden;
     opacity: 0;
@@ -76,14 +76,14 @@
     font-family: 'OpenSans-Bold', sans-serif;
     font-size: 13px;
     letter-spacing: 0.03em;
-    color: var(--red-color);
+    color: #f14a58;
 }
 .promotion-bar {
     margin-bottom: 30px;
     max-width: 1300px;
     height: 41px;
     background-color: #f7f7f7;
-    border-top: 1px solid var(--grey-color);
+    border-top: 1px solid #e5e5e5;
 }
 .promotion-bar p {
     font-family: 'OpenSans-Bold', sans-serif;
@@ -91,7 +91,7 @@
     letter-spacing: 0.03em;
 }
 .promotion-bar p span {
-    color: var(--red-color);
+    color: #f14a58;
 }
 #bag-total {
     position: absolute;
@@ -100,7 +100,7 @@
 }
 #bag-total p:first-child {
     margin: 0 auto 13px;
-    color: var(--red-color);
+    color: #f14a58;
     font-family: 'Roboto-Regular', sans-serif;
     font-size: 16px;
     letter-spacing: 0.03em;

@@ -1,7 +1,7 @@
 .bottom-bar {
     margin: 0;
     height: 46px;
-    border-bottom: 1px solid var(--grey-color);
+    border-bottom: 1px solid #e5e5e5;
 }
 .bottom-bar a {
     font-family: 'OpenSans-Bold', sans-serif;
@@ -75,5 +75,5 @@
 }
 .item-info__color a:hover, .item-info__size a:hover {
     padding: 15px 19px;
-    border: 1px solid var(--grey-color);
+    border: 1px solid #e5e5e5;
 }
