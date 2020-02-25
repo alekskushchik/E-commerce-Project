@@ -27,6 +27,11 @@ main p  {
     grid-column-gap: 74px;
     text-align: center;
 }
+.catalog-item {
+    position: relative;
+    width: 240px;
+    height: 343px;
+}
 .catalog h4 {
     font-family: 'Roboto-Bold', sans-serif;
     font-size: 14px;
@@ -52,7 +57,7 @@ main p  {
 .catalog-image a img {
     opacity: 1;
     transition: opacity 124ms linear;
-    height: 100%;
+    width: 100%;
     display: block;
 }
 .catalog-image:hover img {
