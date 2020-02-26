@@ -95,7 +95,7 @@ window.catalog = [{
     colors: ['Black', 'Blue'],
     sizes: ['UK 52', 'UK 54', 'UK 56'],
     thumbnail: 'img/desktop/photo-15.png', // replace with image extracted from item layout
-    preview: ['full image path 1', 'full image path 2', 'full image path 3'] // replace with paths to images extracted from item layout
+    preview: ['img/desktop/full-item-image-0.png', 'img/desktop/full-item-image-1.png', 'img/desktop/full-item-image-2.png'] // replace with paths to images extracted from item layout
 }, {
     id: '8b300772-eee3-4ff1-b091-e89f17e0e469',
     dateAdded: '2017-08-10T14:59:00.000Z',

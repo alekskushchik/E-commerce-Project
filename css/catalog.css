@@ -38,13 +38,13 @@ main h2 {
 .catalog-item:nth-child(4n) {
     margin-right: 0;
 }
-.before-promo h4, .after-promo h4 {
+.catalog-info h4 {
     font-family: 'Roboto-Bold', sans-serif;
     font-size: 14px;
     letter-spacing: .03em;
     text-align: center;
 }
-.before-promo p, .after-promo p {
+.catalog-info p {
     font-family: 'Roboto-Regular', sans-serif;
     font-size: 14px;
     letter-spacing: .03em;
