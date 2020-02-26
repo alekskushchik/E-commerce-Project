@@ -6,19 +6,29 @@ var goods = catalog;
 function sortByArrivals() {
     goods = _.orderBy(catalog, ['dateAdded'], ['desc']);
 }
-
 sortByArrivals();
 
 function renderCatalog() {
     var htmlCatalog = '';
-
     for (var i = 0; i < goods.length; i++) {
-        console.log(goods[i].id);
-
         if (goods[i].hasNew) {
-            htmlCatalog += "\n            <div class=\"catalog-item\">\n                <p class=\"new-icon\">new</p>\n                <div class=\"catalog-image\" data-id=\"" + goods[i].id + "\">\n                    <a href=\"#\"><img src=\"" + goods[i].thumbnail + "\" alt=\"\">\n                    <p>View item</p></a>\n                </div>\n                <div class=\"catalog-info\">\n                    <h4>" + goods[i].title + "</h4>\n                    <p>\xA3" + goods[i].price + "</p>\n                </div>\n            </div>";
+            htmlCatalog +=
+                "<div class=\"catalog-item\">" +
+                "<p class=\"new-icon\">new</p>" +
+                "<div class=\"catalog-image\" data-id=\"" + goods[i].id + "\">" +
+                "<a href=\"#\"><img src=\"" + goods[i].thumbnail + "\" alt=\"\">" +
+                "<p>View item</p></a></div>" + "<div class=\"catalog-info\">" +
+                "<h4>" + goods[i].title + "</h4><p>" + "£" + goods[i].price.toFixed(2) + "</p>" + "</div>" +
+                "</div>"
+            ;
         } else {
-            htmlCatalog += "\n            <div class=\"catalog-item\">\n                <div class=\"catalog-image\" data-id=\"" + goods[i].id + "\">\n                    <a href=\"#\"><img src=\"" + goods[i].thumbnail + "\" alt=\"\">\n                    <p>View item</p></a>\n                </div>\n                <div class=\"catalog-info\">\n                    <h4>" + goods[i].title + "</h4>\n                    <p>\xA3" + goods[i].price + "</p>\n                </div>\n            </div>";
+            htmlCatalog +=
+            "<div class=\"catalog-item\">" +
+            "<div class=\"catalog-image\" data-id=\"" + goods[i].id + "\">" +
+            "<a href=\"#\"><img src=\"" + goods[i].thumbnail + "\" alt=\"\">" +
+            "<p>View item</p></a></div>" + "<div class=\"catalog-info\">" +
+            "<h4>" + goods[i].title + "</h4><p>" + "£" + goods[i].price.toFixed(2) + "</p>" + "</div>" +
+            "</div>";
         }
     }
 
