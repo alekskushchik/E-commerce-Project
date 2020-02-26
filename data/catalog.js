@@ -52,7 +52,7 @@ window.catalog = [{
     fashion: 'Nail the 90s',
     colors: ['Blue'],
     sizes: ['UK 18'],
-    thumbnail: 'img/desktop/photo-13.png', // replace with image extracted from item layout
+    thumbnail: 'img/desktop/photo-14.png', // replace with image extracted from item layout
     preview: ['full image path 1', 'full image path 2', 'full image path 3'] // replace with paths to images extracted from item layout
 }, {
     id: '5677f851-1c4a-4e9b-80e9-16d1e6265257',
@@ -94,7 +94,7 @@ window.catalog = [{
     fashion: 'Classical style',
     colors: ['Black', 'Blue'],
     sizes: ['UK 52', 'UK 54', 'UK 56'],
-    thumbnail: 'img/desktop/full-item-image.png', // replace with image extracted from item layout
+    thumbnail: 'img/desktop/photo-15.png', // replace with image extracted from item layout
     preview: ['full image path 1', 'full image path 2', 'full image path 3'] // replace with paths to images extracted from item layout
 }, {
     id: '8b300772-eee3-4ff1-b091-e89f17e0e469',

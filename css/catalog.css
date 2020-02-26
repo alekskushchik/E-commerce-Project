@@ -12,42 +12,48 @@ main h2 {
     letter-spacing: .03em;
     text-align: center;
 }
-main h2 span {
+.promo h2 span {
     color: #f14a58;
 }
-main p  {
+.promo p  {
+    margin-bottom: 68px;
     font-family: 'TimesNewRomanPS-ItalicMT', serif;
     font-size: 16px;
     text-align: center;
 }
-.catalog {
+.before-promo, .after-promo {
     display: flex;
-    display: -ms-flex;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: space-between;
 }
 .catalog-item {
     position: relative;
     width: 240px;
     height: 475px;
+    margin: auto;
 }
-.catalog h4 {
+.catalog-item:nth-child(4n+1) {
+    margin-left: 0;
+}
+.catalog-item:nth-child(4n) {
+    margin-right: 0;
+}
+.before-promo h4, .after-promo h4 {
     font-family: 'Roboto-Bold', sans-serif;
     font-size: 14px;
     letter-spacing: .03em;
     text-align: center;
 }
-.catalog p {
+.before-promo p, .after-promo p {
     font-family: 'Roboto-Regular', sans-serif;
     font-size: 14px;
     letter-spacing: .03em;
     text-align: center;
 }
-.catalog p span {
+.before-promo p span, .after-promo p span {
     color: #757575;
 }
-.catalog p img  {
+.before-promo p img, .after-promo p img  {
     width: 52px;
     top: -5px;
     position: absolute;
@@ -84,8 +90,8 @@ main p  {
 }
 .catalog-bottom-section {
     max-width: 1300px;
-    display: grid;
-    grid-template-columns: 2fr 1fr 1fr;
+    display: flex;
+    flex-direction: row;
     border-top-width: 1px;
     border-top-style: solid;
     border-image: linear-gradient(to left, #fff 0%, #999999 100%, #fff 0%);
