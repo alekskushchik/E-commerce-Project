@@ -38,39 +38,11 @@
         </div>
     </nav>
     <div class="bottom-bar">
-        <a href="catalog.html">< Back to catalog</a>
+        <a id="back-button" href="catalog.html">< Back to catalog</a>
     </div>
 </header>
 <main>
-    <div class="item">
-        <div class="item-image">
-            <img src="img/desktop/full-item-image-0.png" alt="">
-            <div class="item-image__thumb">
-                <img src="img/desktop/thumb_0.png" alt="">
-                <img src="img/desktop/thumb_1.png" alt="">
-                <img src="img/desktop/thumb_2.png" alt="">
-            </div>
-        </div>
-        <div class="item-info">
-            <h4>Dark classic fit suit</h4>
-            <p>Featuring fine Italian wool, this elegant suit has pick-stitch edging, cascade buttons at the cuffs
-                and a subtle stripe pattern throughout.</p>
-            <span>£180.60</span>
-            <div class="item-info__size">
-                <span>Size:</span>
-                <a href="">UK 52</a>
-                <a href="">UK 54</a>
-                <a href="">UK 56</a>
-            </div>
-            <div class="item-info__color">
-                <span>Color:</span>
-                <a href="">Black</a>
-                <a href="">Blue</a>
-            </div>
-            <a class="bottom-section__button" href="#">Add to bag</a>
-        </div>
-    </div>
-
+    <div class="item"></div>
 </main>
 <div class="catalog-bottom-section">
     <div>
@@ -80,7 +52,7 @@
     </div>
     <div>
         <h4>Repair Patches</h4>
-        <p>£ 150.50</p>
+        <p>&#163; 150.50</p>
         <img src="img/desktop/photo-13.png" alt="">
     </div>
     <div>
@@ -139,10 +111,7 @@
         <div>&copy; 2010–2015, The Template Group inc.</div>
         <div>
             <span>Share</span>
-            <svg class="share-bgr" width="46px" height="21px">
-                <path fill-rule="evenodd"  fill="rgb(244, 244, 244)"
-                      d="M4.000,21.000 L4.000,14.208 L0.019,10.500 L4.000,6.791 L4.000,-0.000 L46.000,-0.000 L46.000,21.000 L4.000,21.000 Z"/>
-            </svg>
+            <img class="share-bgr" src="img/desktop/fon.png" alt="">
             <span>&nbsp;&nbsp;1 437</span>
         </div>
         <div>
@@ -154,5 +123,8 @@
         </div>
     </div>
 </footer>
+<script src="js/lodash.js"></script>
+<script src="data/catalog.js" ></script>
+<script src="js/item.js"></script>
 </body>
 </html>

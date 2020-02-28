@@ -38,6 +38,12 @@ main h2 {
 .catalog-item:nth-child(4n) {
     margin-right: 0;
 }
+.catalog-item:nth-last-child(-n+2){
+    margin: auto;
+}
+.catalog-item:last-child {
+    margin: auto;
+}
 .catalog-info h4 {
     font-family: 'Roboto-Bold', sans-serif;
     font-size: 14px;
