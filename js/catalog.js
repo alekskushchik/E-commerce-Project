@@ -79,3 +79,11 @@ function searchByStyle() {
         }
     }
 }
+function updateTotals (totalCost, totalCount) {
+    var totalCostField = document.querySelector('#total-price');
+    var totalCountField = document.querySelector('#amount');
+      
+    totalCostField.textContent = String.fromCharCode(163) + totalCost;
+    totalCountField.textContent = '(' + totalCount + ')';
+}
+updateTotals(window.bagStorage.totalCost, window.bagStorage.totalCount);

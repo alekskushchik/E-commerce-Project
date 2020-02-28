@@ -338,7 +338,9 @@ p.items__price {
     letter-spacing: .03em;
     text-align: center;
 }
-a.bottom-section__button {
+button.bottom-section__button {
+    background: transparent;
+    outline: none;
     display: inline-block;
     position: relative;
     left: 50%;
@@ -353,9 +355,10 @@ a.bottom-section__button {
     border: 1px solid #e5e5e5;
     box-sizing: border-box;
 }
-a.bottom-section__button:hover {
+button.bottom-section__button:hover {
     color: #f14a58;
     border: 1px solid #f14a58;
+    cursor: pointer;
 }
 .top-footer {
     max-width: 1440px;

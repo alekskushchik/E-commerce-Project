@@ -32,7 +32,7 @@ var products = window.catalog;
             <span>&#163;${products[i].price.toFixed(2)}</span>
             <div class="item-info__size">${size}</div>
             <div class="item-info__color">${color}</div>
-            <a class="bottom-section__button" href="shopping-bag.html">Add to bag</a>
+            <button class="bottom-section__button" type="button">Add to bag</button>
         </div>`;
         }
     }
@@ -108,13 +108,10 @@ function changeActiveButton(target) {
 }
 
 var addItemButton = document.querySelector('.bottom-section__button');
-
-if(addItemButton) {
     addItemButton.addEventListener('click', function () {
         window.bagStorage.addItemToBag(cloneObject( getItem() ));
         window.updateTotals(window.bagStorage.totalCost, window.bagStorage.totalCount);
-    });
-}
+});
 
 function cloneObject(object) {
     var clonedObj = {};
@@ -128,12 +125,12 @@ function cloneObject(object) {
 var storage = {
 
     get bagParams() {
-        var params = JSON.parse(window.localStorage.getItem('cart')) || {};
+        var params = JSON.parse(window.localStorage.getItem('bagStorage')) || {};
         return params;
     },
 
     set bagParams(uploadedStats) {
-        localStorage.setItem('cart', JSON.stringify(uploadedStats));
+        localStorage.setItem('bagStorage', JSON.stringify(uploadedStats));
     }
 };
 
@@ -144,21 +141,20 @@ var storage = {
         totalCount: storage.bagParams.totalCount || 0,
         addItemToBag: function(item) {
             if( getIndexOfItem(this.bag, item) !== -1) {
-                this.bag[getIndexOfItem(this.bag, item)].quantity += 1;
+                this.bag[getIndexOfItem(this.bag, item)].quantity++;
             } else {
                 item.id = this.bag.length;
                 this.bag.push(item);
             }
-
             this.totalCost += item.price;
-            this.totalCount += 1;
+            this.totalCount++;
             updateState(this.bag, this.totalCost, this.totalCount);
         },
         clearBag: function() {
-            this.bag = [];
-                this.totalCount = 0;
-            this.totalCost = 0;
-            updateState(this.bag, this.totalCost, this.totalCount);
+            this.bag = [],
+            this.totalCount = 0,
+            this.totalCost = 0,
+            updateState(this.bag, this.totalCost, this.totalCount)
         },
         removeItem: function(itemId) {
             for(var i = 0; i < this.bag.length; i += 1) {
@@ -181,11 +177,10 @@ var storage = {
 
     function getIndexOfItem(array, item) {
         for(var i = 0; i < array.length; i += 1) {
-            if(array[i].name === item.name && array[i].size === item.size && array[i].color === item.color) {
+            if(array[i].title === item.name && array[i].sizes === item.sizes && array[i].colors === item.colors) {
                 return i;
             }
         }
-
         return -1;
     }
 
@@ -196,6 +191,16 @@ var storage = {
             totalCount: totalCount
         };
     }
-
     window.bagStorage = bagStorage;
 })();
+
+window.updateTotals = function (totalCost, totalCount) {
+    var totalCostField = document.querySelector('#total-price');
+    var totalCountField = document.querySelector('#amount');
+
+    totalCostField.textContent = String.fromCharCode(163) + totalCost;
+
+    totalCountField.textContent = '(' + totalCount + ')';
+}
+
+window.updateTotals(window.bagStorage.totalCost, window.bagStorage.totalCount);

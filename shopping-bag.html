@@ -17,8 +17,8 @@
     <div class="top-bar">
         <div id="logo"><a href="index.html">Template</a></div>
         <div class="right-content">
-            <span>E-mail sign up</span>
-            <div class="bag"><img src="img/desktop/ico_bag.png" alt="ico_bag">Bag (0)</div>
+          <span>E-mail sign up</span>
+          <div class="bag"><a href="shopping-bag.html"><img src="img/desktop/ico_bag.png" alt="ico_bag">Bag <span id="amount">0</span></a></div>
         </div>
     </div>
 
@@ -108,8 +108,8 @@
     </div>
     <a class="bottom-section__button" href="#">Checkout</a>
     <div id="bag-total">
-        <p>Applied discount: <span>£15.00</span></p>
-        <p>Total price: <span>£236.50</span></p>
+        <p>Applied discount: <span id="discount">£15.00</span></p>
+        <p>Total price: <span id="total-price">£236.50</span></p>
     </div>
 </main>
 <footer>
@@ -173,5 +173,8 @@
         </div>
     </div>
 </footer>
+
+<script src="js/lodash.js"></script>
+<script src="data/catalog.js" ></script>
 </body>
 </html>
