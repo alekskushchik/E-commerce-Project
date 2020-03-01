@@ -26,11 +26,27 @@ main h2 {
     flex-direction: row;
     flex-wrap: wrap;
 }
-.catalog-item {
+p.new-icon {
+    top: 15px;
+}
+span.discount {
+    display: inline-block;
     position: relative;
-    width: 240px;
-    height: 475px;
-    margin: auto;
+    left: -15px;
+    font-family: 'Roboto-Regular', sans-serif;
+    font-size: 14px;
+    letter-spacing: .03em;
+    text-align: center;
+    color: #757575;
+}
+span.discount img {
+    display: block;
+    position: absolute;
+    z-index: 10;
+    width: 51px;
+    height: 31px;
+    left: -15px;
+    top: -5px;
 }
 .catalog-item:nth-child(4n+1) {
     margin-left: 0;
@@ -44,18 +60,6 @@ main h2 {
 .catalog-item:last-child {
     margin: auto;
 }
-.catalog-info h4 {
-    font-family: 'Roboto-Bold', sans-serif;
-    font-size: 14px;
-    letter-spacing: .03em;
-    text-align: center;
-}
-.catalog-info p {
-    font-family: 'Roboto-Regular', sans-serif;
-    font-size: 14px;
-    letter-spacing: .03em;
-    text-align: center;
-}
 .before-promo p span, .after-promo p span {
     color: #757575;
 }
@@ -63,36 +67,6 @@ main h2 {
     width: 52px;
     top: -5px;
     position: absolute;
-}
-.catalog-image {
-    position: relative;
-    background: #000;
-}
-.catalog-image a img {
-    opacity: 1;
-    transition: opacity 124ms linear;
-    width: 100%;
-    height: 100%;
-    display: block;
-}
-.catalog-image:hover img {
-    opacity: 0.6;
-}
-.catalog-image p {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    font-family: 'OpenSans-Bold', sans-serif;
-    font-size: 22px;
-    letter-spacing: 0.03em;
-    color: #f14a58;
-    transform: translate(-50%, -50%);
-    visibility: hidden;
-    opacity: 0;
-}
-.catalog-image:hover p {
-    visibility: visible;
-    opacity: 1;
 }
 .catalog-bottom-section {
     max-width: 1300px;

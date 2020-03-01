@@ -1,6 +1,15 @@
 "use strict";
 var products = catalog;
+var shoppingCart = JSON.parse(localStorage.getItem('cartStorage'));
 var newArrivals = document.querySelector('.new-arrivals');
+
+(function onloadCartTotals() {
+    var totals = localStorage.getItem('cartStorage');
+    if (totals) {
+        document.querySelector('#amount').textContent = "(" + shoppingCart.totalCount + ")";
+        document.querySelector('#total-cost').textContent = "£" + shoppingCart.totalCost.toFixed(2);
+    }
+})();
 
 function sortByArrivals() {
     products = _.orderBy(catalog, ['dateAdded'], ['desc']);

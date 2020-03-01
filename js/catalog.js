@@ -1,41 +1,40 @@
 "use strict";
 // getting variables
-var products = window.catalog;
-var beforePromo = document.querySelector('.before-promo');
-var promo = document.querySelector('.promo');
-var afterPromo = document.querySelector('.after-promo');
-var items = document.getElementsByClassName('catalog-item');
-var input = document.querySelector('input');
-var filter = input.value.toUpperCase();
+var products = window.catalog,
+    shoppingCart = JSON.parse(localStorage.getItem('cartStorage')),
+    beforePromo = document.querySelector('.before-promo'),
+    promo = document.querySelector('.promo'),
+    afterPromo = document.querySelector('.after-promo'),
+    items = document.getElementsByClassName('catalog-item'),
+    input = document.querySelector('input'),
+    filter = input.value.toUpperCase();
+
+(function onloadCartTotals() {
+    var totals = localStorage.getItem('cartStorage');
+    if (totals) {
+        document.querySelector('#amount').textContent = "(" + shoppingCart.totalCount + ")";
+        document.querySelector('#total-cost').textContent = String.fromCharCode(163) + shoppingCart.totalCost.toFixed(2);
+    }
+})();
 
 function sortByArrivals() {
     products = _.orderBy(catalog, ['dateAdded'], ['desc']);
 }
 sortByArrivals();
 
-function renderCatalog() {
-    //rendering catalog items above promobar
+
+// rendering catalog items above promobar
+(function renderCatalog() {
     var htmlBeforePromo = '';
     for (var i = 0; i < 4; i++) {
-        if (products[i].hasNew) {
             htmlBeforePromo +=
                 "<div class=\"catalog-item\" data-id=\"" + products[i].id + "\" data-fashion=\"" + products[i].fashion + "\">" +
                 "<p class=\"new-icon\">new</p>" +
                 "<div class=\"catalog-image\">" +
                 "<a href=\"item.html#id=" + products[i].id + "\"><img src=\"" + products[i].thumbnail + "\" alt=\"\">" +
                 "<p>View item</p></a></div>" + "<div class=\"catalog-info\">" +
-                "<h4>" + products[i].title + "</h4><p>" + "£" + products[i].price.toFixed(2) + "</p>" + "</div>" +
-                "</div>"
-            ;
-        } else {
-            htmlBeforePromo +=
-            "<div class=\"catalog-item\" data-id=\"" + products[i].id + "\" data-fashion=\"" + products[i].fashion + "\">" +
-            "<div class=\"catalog-image\">" +
-            "<a href=\"item.html#id=" + products[i].id + "\"><img src=\"" + products[i].thumbnail + "\" alt=\"\">" +
-            "<p>View item</p></a></div>" + "<div class=\"catalog-info\">" +
-            "<h4>" + products[i].title + "</h4><p>" + "£" + products[i].price.toFixed(2) + "</p>" + "</div>" +
-            "</div>";
-        }
+                "<h4>" + products[i].title + "</h4>" + "<p><span class='discount'><img src=\"img/desktop/crossline.png\" alt=\"\">" + "£" + products[i].discountedPrice + "</span>" + "£" + products[i].price.toFixed(2) + "</p>" + "</div>" +
+                "</div>";
     }
     beforePromo.innerHTML = htmlBeforePromo;
     // rendering promobar
@@ -46,29 +45,30 @@ function renderCatalog() {
     //rendering catalog items in the bottom of promobar
     var htmlAfterPromo = '';
     for (var i = 4; i < products.length; i++) {
-        if (products[i].hasNew) {
             htmlAfterPromo +=
                 "<div class=\"catalog-item\" data-id=\"" + products[i].id + "\" data-fashion=\"" + products[i].fashion + "\">" +
                 "<p class=\"new-icon\">new</p>" +
                 "<div class=\"catalog-image\">" +
                 "<a href=\"item.html#id=" + products[i].id + "\"><img src=\"" + products[i].thumbnail + "\" alt=\"\">" +
                 "<p>View item</p></a></div>" + "<div class=\"catalog-info\">" +
-                "<h4>" + products[i].title + "</h4><p>" + "£" + products[i].price.toFixed(2) + "</p>" + "</div>" +
-                "</div>"
-            ;
-        } else {
-            htmlAfterPromo +=
-                "<div class=\"catalog-item\" data-id=\"" + products[i].id + "\" data-fashion=\"" + products[i].fashion + "\">" +
-                "<div class=\"catalog-image\">" +
-                "<a href=\"item.html#id=" + products[i].id + "\"><img src=\"" + products[i].thumbnail + "\" alt=\"\">" +
-                "<p>View item</p></a></div>" + "<div class=\"catalog-info\">" +
-                "<h4>" + products[i].title + "</h4><p>" + "£" + products[i].price.toFixed(2) + "</p>" + "</div>" +
+                "<h4>" + products[i].title + "</h4>" + "<p><span class='discount'><img src=\"img/desktop/crossline.png\" alt=\"\">" + "£" + products[i].discountedPrice + "</span>" + "£" + products[i].price.toFixed(2) + "</p>" + "</div>" +
                 "</div>";
-        }
     }
     afterPromo.innerHTML = htmlAfterPromo;
-}
-renderCatalog();
+    var newLabel = document.querySelectorAll('.new-icon');
+    for (var j = 0; j < newLabel.length; j++){
+        if (products[j].hasNew === false){
+            newLabel[j].classList.add('hidden');
+        }
+    }
+    var discount = document.querySelectorAll('.discount');
+    for (var k = 0; k < discount.length; k++){
+        if (products[k].discountedPrice === products[k].price || products[k].discountedPrice === null){
+            discount[k].classList.add('hidden');
+        }
+    }
+
+})();
 
 function searchByStyle() {
     for (var i = 0; i < products.length; i++) {
@@ -79,11 +79,3 @@ function searchByStyle() {
         }
     }
 }
-function updateTotals (totalCost, totalCount) {
-    var totalCostField = document.querySelector('#total-price');
-    var totalCountField = document.querySelector('#amount');
-      
-    totalCostField.textContent = String.fromCharCode(163) + totalCost;
-    totalCountField.textContent = '(' + totalCount + ')';
-}
-updateTotals(window.bagStorage.totalCost, window.bagStorage.totalCount);
