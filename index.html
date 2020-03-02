@@ -11,17 +11,20 @@
 </head>
 
 <body>
+<div class="wrapper">
     <header>
         <div class="top-bar">
             <div id="logo"><a href="index.html">Template</a></div>
             <div class="right-content">
-              <span>E-mail sign up</span>
-              <div class="bag"><a href="shopping-bag.html"><img src="img/desktop/ico_bag.png" alt="ico_bag">Bag <span id="total-cost">£0</span><span id="amount">(0)</span></a></div>
+                <span>E-mail sign up</span>
+                <div class="bag"><a href="shopping-bag.html"><img src="img/desktop/ico_bag.png" alt="ico_bag">Bag <span id="total-cost">£0</span><span id="amount">(0)</span></a></div>
             </div>
         </div>
 
-        <nav class="navbar">
-            <ul>
+<button type="button" id="dropdown-button" class="dropdown-menu-button"><img src="img/icons/nav_open.png" alt="menu"></button>
+<button type="button" id="close-dropdown" class="hidden-button dropdown-menu-button"><img src="img/icons/menu_close.png" alt="close button"></button>
+        <nav id="dropdown-menu" class="hidden-menu">
+            <ul class="navigation-links-container">
                 <li><a href="#">Women</a></li>
                 <li><a href="#">Men</a></li>
                 <li><a href="#">Handbags</a></li>
@@ -47,7 +50,7 @@
                 <a href="catalog.html"><img src="img/desktop/photo.png" alt=""><h1>Caps & Hats</h1><p>Sale -50%</p></a>
             </article>
         </div>
-        
+
         <div class="middle-section">
             <h1>Best offer</h1>
             <p>This offer is valid in-store and online. Prices displayed reflect this additional discount. This offer ends at 11:59 GMT on March 1st 2019</p>
@@ -68,7 +71,7 @@
                     <img src="img/desktop/photo-5.png" alt="">
                     <p class="items__title">Levi’s Jeans for women</p>
                     <p class="items__price">£95.50</p>
-                    <img src="img/desktop/row-down.png" alt="">                
+                    <img src="img/desktop/row-down.png" alt="">
                 </div>
                 <div>
                     <span>=</span>
@@ -78,7 +81,7 @@
                     <span>£161.00</span>
                     <span>£146.00</span>
                 </div>
-            </div>        
+            </div>
         </div>
 
         <div class="bottom-section">
@@ -149,6 +152,8 @@
             </div>
         </div>
     </footer>
+</div>
+
 
     <script src="js/lodash.js"></script>
     <script src="data/catalog.js" ></script>

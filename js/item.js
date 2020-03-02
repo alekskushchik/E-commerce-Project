@@ -152,25 +152,24 @@ var storage = {
     }
 };
 
-(function() {
-    var cartStorage =  {
-        cart: storage.cartProps.cart || [],
-        totalCost: storage.cartProps.totalCost || 0,
-        totalCount: storage.cartProps.totalCount || 0,
-        addItemToCart:
-            function(item) {
-            if(getIndexOfItem(this.cart, item) !== -1) {
-                this.cart[getIndexOfItem(this.cart, item)].amount++;
-            } else {
-                item.id = this.cart.length;
-                this.cart.push(item);
-            }
-            this.totalCost += item.price;
-            this.totalCount += 1;
-            updateState(this.cart, this.totalCost, this.totalCount);
-        },
-    };
-
+(function () {
+         var cartStorage =  {
+            cart: storage.cartProps.cart || [],
+            totalCost: storage.cartProps.totalCost || 0,
+            totalCount: storage.cartProps.totalCount || 0,
+            addItemToCart:
+                function(item) {
+                    if(getIndexOfItem(this.cart, item) !== -1) {
+                        this.cart[getIndexOfItem(this.cart, item)].amount++;
+                    } else {
+                        item.id = this.cart.length;
+                        this.cart.push(item);
+                    }
+                    this.totalCost += item.price;
+                    this.totalCount += 1;
+                    updateState(this.cart, this.totalCost, this.totalCount);
+                },
+        };
     function getIndexOfItem(array, item) {
         for(var i = 0; i < array.length; i += 1) {
             if(array[i].title === item.title && array[i].sizes === item.sizes && array[i].colors === item.colors) {
@@ -198,8 +197,6 @@ window.updateTotals = function (totalCost, totalCount) {
 };
 
 updateTotals(cartStorage.totalCost, cartStorage.totalCount);
-
-
 
 // var id = window.location.hash.substr(4);
 // for (var i = 0; i < products.length; i++) {

@@ -151,3 +151,66 @@ span.discount img {
     letter-spacing: .03em;
     color: #000;
 }
+
+@media only screen and (min-width: 1024px) {
+    .dropdown-filters, .showing-filters-button, .selected-item-properties {
+        display: none;
+    }
+
+    .filters-bar {
+        display: none;
+    }
+
+    .selecting-filters-container::before, .selecting-filters-container::after {
+        content: "";
+        display: table;
+    }
+
+    .selecting-filters-container::after {
+        clear: both;
+    }
+
+    .selecting-filters-container {
+        display: block;
+        border-bottom: 1px solid #e5e5e5;
+        font-family: 'OpenSans-Bold', sans-serif;
+        font-size: 16px;
+        text-align: center;
+        letter-spacing: .03em;
+    }
+
+    .filter-selection {
+        width: 196px;
+        display: flex;
+        flex-direction: row;
+        float: left;
+        height: 65px;
+        border-radius: 0;
+        border: none;
+        background: transparent url("../img/desktop/filter.png") no-repeat 90% center;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        outline: none;
+        position: relative;
+        text-align: center;
+    }
+
+    .filter-selection::-ms-expand {
+        display: none;
+    }
+
+    .filter-selection-label {
+        position: absolute;
+        display: none;
+    }
+    .filter-selection:hover {
+        background: #e5e5e5 url("../img/desktop/filter.png") no-repeat 90% center;
+        cursor: pointer;
+    }
+    .filter-selection option:checked {
+        background-color: #e5e5e5;
+    }
+    .shopping-bag-heading {
+        font-size: 24px;
+    }
+}

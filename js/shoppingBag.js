@@ -9,7 +9,12 @@ var shoppingCart = JSON.parse(localStorage.getItem('cartStorage'));
         document.querySelector('#total-cost').textContent = "£" + shoppingCart.totalCost;
     }
 })();
-
+window.updateTotals = function (totalCost, totalCount) {
+    var totalCostField = document.querySelector('#total-cost');
+    var totalCountField = document.querySelector('#amount');
+    totalCostField.textContent = String.fromCharCode(163) + totalCost;
+    totalCountField.textContent = '(' + totalCount + ')';
+};
 function renderShoppingBag() {
         let htmlItem = '';
         for (var i = 0; i < shoppingCart.cart.length; i++) {
@@ -29,18 +34,26 @@ function renderShoppingBag() {
 </div>`;
         }
         cartContainer.innerHTML = htmlItem;
-    }
+}
 renderShoppingBag();
 
     var removeButton = document.getElementsByClassName('remove-item-from-bag');
     for (let i = 0; i < shoppingCart.cart.length; i++) {
         removeButton[i].addEventListener('click', function () {
             shoppingCart.cart.splice(i, 1);
-            localStorage.setItem('cartStorage', JSON.stringify(shoppingCart.cart));
+            if (shoppingCart.cart.length) {
+                localStorage.setItem('cartStorage', JSON.stringify(shoppingCart));
+            } else {
+                let cart = {
+                    cart: [],
+                    totalCost: 0,
+                    totalCount: 0
+                };
+                localStorage.setItem('cartStorage', JSON.stringify(cart))
+            }
             renderShoppingBag();
             location.reload()
         })
     }
-
 var totalCartPrice = document.querySelector('#total-price');
     totalCartPrice.textContent = `£${shoppingCart.totalCost.toFixed(2)}`;
