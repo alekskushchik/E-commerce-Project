@@ -1,4 +1,9 @@
-.bottom-bar a {
+.bottom-bar {
+    width: 100%;
+    float: left;
+    margin: 0;
+    height: 46px;
+    border-bottom: 1px solid #e5e5e5;
     font-size: 26px;
 }
 .shopping-bag {

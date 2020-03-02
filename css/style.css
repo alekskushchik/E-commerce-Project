@@ -1,13 +1,23 @@
-
 body {
-    margin: 0 auto;
     padding: 0;
     border: 0;
 }
+img {
+    vertical-align: middle;
+}
+
+a {
+    text-decoration: none;
+    color: #000;
+}
+
+a:hover {
+    color: #f14a58;
+}
 .wrapper {
+    margin: 0 auto;
     min-width: 375px;
     max-width: 1180px;
-    margin: 0 auto;
     display: flex;
     flex-direction: column;
     min-height: 100vh;
@@ -16,13 +26,11 @@ body {
 }
 
 header {
+    width: 100%;
     margin: 0 auto;
     padding-top: 26px;
 }
-a {
-    color: #000;
-    text-decoration: none;
-}
+
 .hidden-menu {
     display: none;
 }
@@ -56,23 +64,14 @@ a {
 .bag img {
     margin-right: 14px;
 }
-.navigation-links-container {
-    float: left;
-    margin-bottom: 20px;
+.navigation-container {
+    display: flex;
+    align-items: center;
 }
-.navigation-links-container li {
-    display: inline;
-    margin-right: 23px;
-    line-height: normal;
+#dropdown-button, #close-dropdown {
+    border-left: 1px solid #e5e5e5;
+    box-sizing: border-box;
 }
-#dropdown-button {
-     border-left: 1px solid #e5e5e5;
-     box-sizing: border-box;
- }
-.hidden-button {
-    display: none;
-}
-
 .dropdown-menu-button {
     float: right;
     width: 58px;
@@ -83,35 +82,14 @@ a {
     cursor: pointer;
     outline: none;
 }
+
 .dropdown-menu-button:hover {
     background-color: #e5e5e5;
 }
-nav {
-    font-family: 'OpenSans-Bold', sans-serif;
-    font-size: 13px;
-    display: flex;
-    align-items: center;
+.hidden-button {
+    display: none;
 }
-nav ul {
-    padding: 0;
-    display: flex;
-    flex-direction: row;
-}
-nav ul > li {
-    margin: 7px 64px 7px 0;
-    list-style: none;
-    letter-spacing: .03em;
-}
-nav ul li:first-child {
-    margin-left: 0;
-}
-nav a {
-    color: #000;
-    text-decoration: none;
-}
-nav a:hover {
-    color: #f14a58;
-}
+
 #search {
     position: relative;
 }
@@ -130,6 +108,34 @@ input {
     transform: translate(0, -50%);
     z-index: 1;
 }
+#dropdown-menu {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: white;
+    box-shadow: 1px 150px 36px 33px rgba(0,0,0,0.75);
+    line-height: 70px;
+}
+.hidden-menu {
+    display: none;
+}
+.navigation-links-container {
+    float: left;
+    display: flex;
+    flex-direction: row;
+    margin: 7px 64px 7px 0;
+    padding-left: 0;
+    list-style-type: none;
+    font-family: 'OpenSans-Bold', sans-serif;
+    font-size: 13px;
+    letter-spacing: .03em;
+}
+
+.navigation-links-container li {
+    line-height: 70px;
+    height: 70px;
+}
 
 .top-section {
     display: flex;
@@ -138,7 +144,6 @@ input {
 article {
     position: relative;
     border: 1px solid;
-
 }
 article:first-child {
     border-left: none;
@@ -158,7 +163,7 @@ article img {
 article h1 {
     margin: 0;
     font-family: 'OpenSans-Bold', sans-serif;
-    font-size: 28px;   
+    font-size: 28px;
     letter-spacing: .03em;
     position: absolute;
     z-index: 1;
@@ -187,7 +192,7 @@ article p {
 .middle-section h1, .bottom-section h1  {
     margin-bottom: 16px;
     font-family: 'OpenSans-Bold', sans-serif;
-    font-size: 50px;   
+    font-size: 50px;
     letter-spacing: .03em;
 }
 .middle-section p {
@@ -202,7 +207,7 @@ p.new-icon {
     background-color: #f14a58;
     font-family: 'Roboto-Medium', sans-serif;
     font-size: 13px;
-    color: #fff;   
+    color: #fff;
     letter-spacing: .03em;
     text-transform: uppercase;
     z-index: 10;
@@ -228,7 +233,7 @@ p.new-icon {
 }
 .middle-section__items div:nth-child(5) :nth-child(2) {
     font-family: 'Roboto-Regular', sans-serif;
-    font-size: 26px;   
+    font-size: 26px;
     letter-spacing: .03em;
     position: absolute;
     top: 160px;
@@ -237,7 +242,7 @@ p.new-icon {
 }
 .middle-section__items span {
     font-family: 'Roboto-Bold', sans-serif;
-    font-size: 34px;   
+    font-size: 34px;
     letter-spacing: .03em;
 }
 .middle-section__items div:nth-child(2n+1) {
@@ -247,7 +252,7 @@ p.new-icon {
 }
 .middle-section__items > div img:first-child, .middle-section__items > div img:last-child {
     width: 24px;
-    margin: 0 auto;    
+    margin: 0 auto;
 }
 .middle-section__items div:nth-child(2n) {
     width: 182px;
@@ -356,7 +361,7 @@ button.bottom-section__button {
     transform: translate(-50%, 0);
     margin: 0 auto 100px;
     font-family: 'OpenSans-Bold', sans-serif;
-    font-size: 24px;   
+    font-size: 24px;
     letter-spacing: .03em;
     color: #000;
     padding: 27px 105px 24px;
@@ -395,13 +400,13 @@ button.bottom-section__button:hover {
 }
 .footer-links h4, .contact-links h4 {
     font-family: 'OpenSans-Bold', sans-serif;
-    font-size: 16px;   
+    font-size: 16px;
     letter-spacing: .03em;
 }
 .footer-links ul {
     padding-left: 0;
     font-family: 'Roboto-Regular', sans-serif;
-    font-size: 14px;   
+    font-size: 14px;
     letter-spacing: .03em;
     line-height: 40px;
     display: flex;
@@ -455,56 +460,21 @@ button.bottom-section__button:hover {
     margin-left: 38px;
     display: inline-block;
 }
-
-
-/* for dropdown menu */
-/*#dropdown-menu {*/
-/*    font-family: "Open Sans";*/
-/*    font-size: 26px;*/
-/*    z-index: 3;*/
-/*    position: absolute;*/
-/*    top: 70px;*/
-/*    background-color: white;*/
-/*    width: 100%;*/
-/*}*/
-.navigation-links-container {
-    margin: 0;
-    list-style-type: none;
-    padding-left: 5%;
+@media only screen and (min-width: 1024px) {
+    .navigation-links-container li {
+        margin-right: 45px;
+    }
 }
-.navigation-links-container li {
-    line-height: 70px;
-    height: 70px;
-}
-
 @media only screen and (min-width: 768px) {
     .dropdown-menu-button {
         display: none !important;
-    }
-    .fixed-container {
-        position: static;
-    }
-    .navigation-links-container {
-        float: left;
-        margin-bottom: 20px;
-    }
-    .navigation-links-container li {
-        display: inline;
-        margin-right: 23px;
-        line-height: normal;
     }
     #dropdown-menu {
         position: static;
         font-size: 12px;
         font-weight: bold;
         box-shadow: none;
-        display: block !important;
+        display: block;
         clear: both;
-    }
-}
-
-@media only screen and (min-width: 1024px) {
-    .navigation-links-container li {
-        margin-right: 45px;
     }
 }

@@ -3,7 +3,7 @@
 }
 main {
     margin: 0 auto;
-    max-width: 1180px;
+    width: 100%;
     position: relative;
 }
 main h2 {

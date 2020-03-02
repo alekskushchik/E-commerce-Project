@@ -40,6 +40,8 @@ renderShoppingBag();
     var removeButton = document.getElementsByClassName('remove-item-from-bag');
     for (let i = 0; i < shoppingCart.cart.length; i++) {
         removeButton[i].addEventListener('click', function () {
+            shoppingCart.totalCost -= shoppingCart.cart[i].price;
+            shoppingCart.totalCount -= 1;
             shoppingCart.cart.splice(i, 1);
             if (shoppingCart.cart.length) {
                 localStorage.setItem('cartStorage', JSON.stringify(shoppingCart));

@@ -12,17 +12,20 @@
     <link rel="stylesheet" href="css/catalog.css">
 </head>
 <body>
-<header>
-    <div class="top-bar">
-        <div id="logo"><a href="index.html">Template</a></div>
-        <div class="right-content">
-          <span>E-mail sign up</span>
-          <div class="bag"><a href="shopping-bag.html"><img src="img/desktop/ico_bag.png" alt="ico_bag">Bag <span id="total-cost">£0</span><span id="amount">(0)</span></a></div>
+<div class="wrapper">
+    <header>
+        <div class="top-bar">
+            <div id="logo"><a href="index.html">Template</a></div>
+            <div class="right-content">
+                <span>E-mail sign up</span>
+                <div class="bag"><a href="shopping-bag.html"><img src="img/desktop/ico_bag.png" alt="ico_bag">Bag <span id="total-cost">£0</span><span id="amount">(0)</span></a></div>
+            </div>
         </div>
-    </div>
 
-    <nav class="navbar">
-            <ul>
+        <button type="button" id="dropdown-button" class="dropdown-menu-button"><img src="img/icons/nav_open.png" alt="menu"></button>
+        <button type="button" id="close-dropdown" class="hidden-button dropdown-menu-button"><img src="img/icons/menu_close.png" alt="close button"></button>
+        <nav id="dropdown-menu" class="hidden-menu">
+            <ul class="navigation-links-container">
                 <li><a href="#">Women</a></li>
                 <li><a href="#">Men</a></li>
                 <li><a href="#">Handbags</a></li>
@@ -36,169 +39,171 @@
                 <input type="text" placeholder="Style name" onkeyup="searchByStyle()">
                 <img src="img/desktop/search-ico.png" alt="search-icon">
             </div>
-    </nav>
-</header>
+        </nav>
+    </header>
 
-<main>
-    <div class="selecting-filters-container">
+    <main>
+        <div class="selecting-filters-container">
 
-        <label for="fashion-select" class="filter-selection-label">Fashion</label>
-        <select id="fashion-select" class="filter-selection first-filter-selection">
-            <option selected="selected" disabled="disabled" value="filter">Fashion</option>
-            <option value="filter">Casual style</option>
-            <option value="filter">Nail the 90s</option>
-            <option value="filter">Classical style</option>
-        </select>
+            <label for="fashion-select" class="filter-selection-label">Fashion</label>
+            <select id="fashion-select" class="filter-selection first-filter-selection">
+                <option selected="selected" disabled="disabled" value="filter">Fashion</option>
+                <option value="filter">Casual style</option>
+                <option value="filter">Nail the 90s</option>
+                <option value="filter">Classical style</option>
+            </select>
 
-        <label for="product-type-select" class="filter-selection-label">Product type</label>
-        <select id="product-type-select" class="filter-selection">
-            <option disabled="disabled" selected="selected">Product type</option>
-            <option value="filter">Jackets</option>
-            <option value="filter">Dresses</option>
-            <option value="filter">Coats</option>
-            <option value="filter">Suits</option>
-        </select>
+            <label for="product-type-select" class="filter-selection-label">Product type</label>
+            <select id="product-type-select" class="filter-selection">
+                <option disabled="disabled" selected="selected">Product type</option>
+                <option value="filter">Jackets</option>
+                <option value="filter">Dresses</option>
+                <option value="filter">Coats</option>
+                <option value="filter">Suits</option>
+            </select>
 
-        <label for="color-select" class="filter-selection-label">Color</label>
-        <select id="color-select" class="filter-selection">
-            <option disabled="disabled" selected="selected">Color</option>
-            <option value="filter">Black</option>
-            <option value="filter">Blue</option>
-            <option value="filter">Red</option>
-            <option value="filter">Green</option>
-            <option value="filter">Golden</option>
-        </select>
+            <label for="color-select" class="filter-selection-label">Color</label>
+            <select id="color-select" class="filter-selection">
+                <option disabled="disabled" selected="selected">Color</option>
+                <option value="filter">Black</option>
+                <option value="filter">Blue</option>
+                <option value="filter">Red</option>
+                <option value="filter">Green</option>
+                <option value="filter">Golden</option>
+            </select>
 
-        <label for="brand-select" class="filter-selection-label">Brand</label>
-        <select id="brand-select" class="filter-selection">
-            <option disabled="disabled" selected="selected">Brand</option>
-            <option value="filter">Antipodium</option>
-            <option value="filter">Asos</option>
-            <option value="filter">Lipsy London</option>
-            <option value="filter">River Island</option>
-        </select>
+            <label for="brand-select" class="filter-selection-label">Brand</label>
+            <select id="brand-select" class="filter-selection">
+                <option disabled="disabled" selected="selected">Brand</option>
+                <option value="filter">Antipodium</option>
+                <option value="filter">Asos</option>
+                <option value="filter">Lipsy London</option>
+                <option value="filter">River Island</option>
+            </select>
 
-        <label for="size-select" class="filter-selection-label">Size</label>
-        <select id="size-select" class="filter-selection">
-            <option disabled="disabled" selected="selected">Size</option>
-            <option value="filter">UK 17</option>
-            <option value="filter">UK 18</option>
-            <option value="filter">UK 19</option>
-            <option value="filter">UK 52</option>
-            <option value="filter">UK 54</option>
-            <option value="filter">UK 56</option>
-        </select>
+            <label for="size-select" class="filter-selection-label">Size</label>
+            <select id="size-select" class="filter-selection">
+                <option disabled="disabled" selected="selected">Size</option>
+                <option value="filter">UK 17</option>
+                <option value="filter">UK 18</option>
+                <option value="filter">UK 19</option>
+                <option value="filter">UK 52</option>
+                <option value="filter">UK 54</option>
+                <option value="filter">UK 56</option>
+            </select>
 
-        <label for="price-range-select" class="filter-selection-label">Price range</label>
-        <select id="price-range-select" class="filter-selection last-filter-selection">
-            <option disabled="disabled" selected="selected">Price range</option>
-            <option value="filter">To &pound;25</option>
-            <option value="filter">&pound;25 - &pound;50</option>
-            <option value="filter">&pound;50 - &pound;100</option>
-            <option value="filter">&pound;100 - &pound;150</option>
-            <option value="filter">From &pound;150</option>
-        </select>
+            <label for="price-range-select" class="filter-selection-label">Price range</label>
+            <select id="price-range-select" class="filter-selection last-filter-selection">
+                <option disabled="disabled" selected="selected">Price range</option>
+                <option value="filter">To &pound;25</option>
+                <option value="filter">&pound;25 - &pound;50</option>
+                <option value="filter">&pound;50 - &pound;100</option>
+                <option value="filter">&pound;100 - &pound;150</option>
+                <option value="filter">From &pound;150</option>
+            </select>
 
-    </div>
-
-    <div class="filters-bar">
-        <ul class="selected-filters">
-            <li class="selected-property">Not selected</li>
-            <li class="selected-property">Not selected</li>
-            <li class="selected-property">Not selected</li>
-            <li class="selected-property">Not selected</li>
-            <li class="selected-property">Not selected</li>
-            <li class="selected-property">Not selected</li>
-        </ul>
-    </div>
-
-    <div class="catalog">
-        <div class="before-promo"></div>
-        <div class="promo"></div>
-        <div class="after-promo"></div>
-    </div>
-
-</main>
-<button class="bottom-section__button" type="button" onClick='location.href="#"'>Show more</button>
-
-<div class="catalog-bottom-section">
-    <div>
-        <h4>Adidas Blue</h4>
-        <p>For men</p>
-        <img src="img/desktop/photo-adidas.png" alt="">
-    </div>
-    <div>
-        <h4>Repair Patches</h4>
-        <p>£ 150.50</p>
-        <img src="img/desktop/photo-13.png" alt="">
-    </div>
-    <div>
-        <h4>Sale</h4>
-        <p>-70%</p>
-        <img src="img/desktop/photo-bag.png" alt="">
-    </div>
-</div>
-<footer>
-    <div class="top-footer">
-        <div class="footer-links">
-            <div>
-                <h4>Quick Links</h4>
-                <ul>
-                    <li>Store locator</li>
-                    <li>Gift cards</li>
-                    <li>Size guide</li>
-                    <li>About us</li>
-                    <li>Support</li>
-                </ul>
-            </div>
-            <div>
-                <h4>Customer Care</h4>
-                <ul>
-                    <li>Customer service</li>
-                    <li>Track my order</li>
-                    <li>Return policy</li>
-                    <li>Shipping & delivery</li>
-                    <li>Contact us</li>
-                    <li>Careers</li>
-                </ul>
-            </div>
         </div>
-        <div class="contact-links">
-            <div>
-                <h4>Questions</h4>
-                <img src="img/desktop/twi_ico_grey.png" alt="twitter icon">
-                <span>Tweet us <strong>@template</strong></span>
-            </div>
-            <div>
-                <h4>Order by phone</h4>
-                <a href="tel:8-800-409-47-12"> 8-800-409-47-12 </a>
-            </div>
-            <div>
-                <p>We have our own delivery service which <br>
-                    operates in 23 major European cities. Delivery <br>
-                    time - 3-5 days.</p>
-                <img src="img/desktop/fb_ico.png" alt="facebook icon">
-                <img src="img/desktop/twi_ico_color.png" alt="twitter icon">
-            </div>
-        </div>
-    </div>
 
-    <div class="bottom-footer">
-        <div>&copy; 2010–2015, The Template Group inc.</div>
-        <div>
-            <span>Share</span>
-            <img class="share-bgr" src="img/desktop/fon.png" alt="">
-            <span>&nbsp;&nbsp;1 437</span>
-        </div>
-        <div>
-            <ul>
-                <li>Legal notice </li>
-                <li>Privacy policy</li>
-                <li>Site map</li>
+        <div class="filters-bar">
+            <ul class="selected-filters">
+                <li class="selected-property">Not selected</li>
+                <li class="selected-property">Not selected</li>
+                <li class="selected-property">Not selected</li>
+                <li class="selected-property">Not selected</li>
+                <li class="selected-property">Not selected</li>
+                <li class="selected-property">Not selected</li>
             </ul>
         </div>
+
+        <div class="catalog">
+            <div class="before-promo"></div>
+            <div class="promo"></div>
+            <div class="after-promo"></div>
+        </div>
+
+    </main>
+    <button class="bottom-section__button" type="button" onClick='location.href="#"'>Show more</button>
+
+    <div class="catalog-bottom-section">
+        <div>
+            <h4>Adidas Blue</h4>
+            <p>For men</p>
+            <img src="img/desktop/photo-adidas.png" alt="">
+        </div>
+        <div>
+            <h4>Repair Patches</h4>
+            <p>£ 150.50</p>
+            <img src="img/desktop/photo-13.png" alt="">
+        </div>
+        <div>
+            <h4>Sale</h4>
+            <p>-70%</p>
+            <img src="img/desktop/photo-bag.png" alt="">
+        </div>
     </div>
-</footer>
+    <footer>
+        <div class="top-footer">
+            <div class="footer-links">
+                <div>
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li>Store locator</li>
+                        <li>Gift cards</li>
+                        <li>Size guide</li>
+                        <li>About us</li>
+                        <li>Support</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Customer Care</h4>
+                    <ul>
+                        <li>Customer service</li>
+                        <li>Track my order</li>
+                        <li>Return policy</li>
+                        <li>Shipping & delivery</li>
+                        <li>Contact us</li>
+                        <li>Careers</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="contact-links">
+                <div>
+                    <h4>Questions</h4>
+                    <img src="img/desktop/twi_ico_grey.png" alt="twitter icon">
+                    <span>Tweet us <strong>@template</strong></span>
+                </div>
+                <div>
+                    <h4>Order by phone</h4>
+                    <a href="tel:8-800-409-47-12"> 8-800-409-47-12 </a>
+                </div>
+                <div>
+                    <p>We have our own delivery service which <br>
+                        operates in 23 major European cities. Delivery <br>
+                        time - 3-5 days.</p>
+                    <img src="img/desktop/fb_ico.png" alt="facebook icon">
+                    <img src="img/desktop/twi_ico_color.png" alt="twitter icon">
+                </div>
+            </div>
+        </div>
+
+        <div class="bottom-footer">
+            <div>&copy; 2010–2015, The Template Group inc.</div>
+            <div>
+                <span>Share</span>
+                <img class="share-bgr" src="img/desktop/fon.png" alt="">
+                <span>&nbsp;&nbsp;1 437</span>
+            </div>
+            <div>
+                <ul>
+                    <li>Legal notice </li>
+                    <li>Privacy policy</li>
+                    <li>Site map</li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+</div>
+
 <script src="js/lodash.js"></script>
 <script src="data/catalog.js" ></script>
 <script src="js/catalog.js"></script>
