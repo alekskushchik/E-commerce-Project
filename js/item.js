@@ -6,7 +6,7 @@ var shoppingCart = JSON.parse(localStorage.getItem('cartStorage'));
     var totals = localStorage.getItem('cartStorage');
     if (totals) {
         document.querySelector('#amount').textContent = "(" + shoppingCart.totalCount + ")";
-        document.querySelector('#total-cost').textContent = "£" + shoppingCart.totalCost.toFixed(2);
+        document.querySelector('#total-cost').textContent = "£" + shoppingCart.totalCost;
     }
 })();
 
@@ -27,16 +27,14 @@ var shoppingCart = JSON.parse(localStorage.getItem('cartStorage'));
                 for (var j = 1; j < products[i].sizes.length; j++) {
                     size += `<button class="item-prop size" type="button" value="${products[i].sizes[j]}">${products[i].sizes[j]}</button>`;
                 }
-
                 color = `<span>Color:</span>
             <button class="item-prop color chosen-prop" type="button" value="${products[i].colors[0]}">${products[i].colors[0]}</button>`;
                 for (var k = 1; k < products[i].colors.length; k++) {
                     color += `<button class="item-prop color" type="button" value="${products[i].colors[k]}">${products[i].colors[k]}</button>`;
                 }
             }
-
             out += `
-        <div class="item-gallery">
+       <div class="item-gallery">
             <img class="item-image-full" src="${products[i].preview[0]}" alt="">
             <div class="gallery-bar">
                 <img class="item-image-thumb active-thumb" src="${products[i].preview[0]}" alt="">
@@ -143,66 +141,39 @@ function setProperties(item) {
     }
 }
 
-var cartStorageName = 'cartStorage';
-
 var storage = {
-
-    get cartParams() {
-        var params = JSON.parse(window.localStorage.getItem(cartStorageName)) || {};
-        return params;
+    get cartProps() {
+        var properties = JSON.parse(localStorage.getItem('cartStorage')) || {};
+        return properties;
     },
 
-    set cartParams(uploadedStats) {
-        localStorage.setItem(cartStorageName, JSON.stringify(uploadedStats));
+    set cartProps(uploadedStats) {
+        localStorage.setItem('cartStorage', JSON.stringify(uploadedStats));
     }
 };
 
 (function() {
     var cartStorage =  {
-        cart: storage.cartParams.cart || [],
-        totalCost: storage.cartParams.totalCost || 0,
-        totalCount: storage.cartParams.totalCount || 0,
+        cart: storage.cartProps.cart || [],
+        totalCost: storage.cartProps.totalCost || 0,
+        totalCount: storage.cartProps.totalCount || 0,
         addItemToCart:
             function(item) {
             if(getIndexOfItem(this.cart, item) !== -1) {
-                this.cart[getIndexOfItem(this.cart, item)].quantity++;
+                this.cart[getIndexOfItem(this.cart, item)].amount++;
             } else {
                 item.id = this.cart.length;
                 this.cart.push(item);
             }
             this.totalCost += item.price;
-            this.totalCount++;
+            this.totalCount += 1;
             updateState(this.cart, this.totalCost, this.totalCount);
         },
-        clearCart:
-            function() {
-            this.cart = [],
-                this.totalCount = 0,
-                this.totalCost = 0,
-                updateState(this.cart, this.totalCost, this.totalCount)
-        },
-        removeItem: function(itemId) {
-            for(var i = 0; i < this.cart.length; i += 1) {
-                if(this.cart[i].id === itemId) {
-                    var item = this.cart[i];
-                    var index = i;
-                }
-            }
-            if(item.quantity > 1) {
-                item.quantity--;
-            } else {
-                this.cart.splice(index, 1);
-            }
-
-            this.totalCost -= item.price;
-            this.totalCount -= 1;
-            updateState(this.cart, this.totalCost, this.totalCount);
-        }
     };
 
     function getIndexOfItem(array, item) {
         for(var i = 0; i < array.length; i += 1) {
-            if(array[i].title === item.name && array[i].sizes === item.sizes && array[i].colors === item.colors) {
+            if(array[i].title === item.title && array[i].sizes === item.sizes && array[i].colors === item.colors) {
                 return i;
             }
         }
@@ -210,7 +181,7 @@ var storage = {
     }
 
     function updateState(cart, totalCost, totalCount) {
-        storage.cartParams = {
+        storage.cartProps = {
             cart: cart,
             totalCost: totalCost,
             totalCount: totalCount
@@ -222,13 +193,11 @@ var storage = {
 window.updateTotals = function (totalCost, totalCount) {
     var totalCostField = document.querySelector('#total-cost');
     var totalCountField = document.querySelector('#amount');
-
     totalCostField.textContent = String.fromCharCode(163) + totalCost;
-
     totalCountField.textContent = '(' + totalCount + ')';
-}
+};
 
-window.updateTotals(window.cartStorage.totalCost, window.cartStorage.totalCount);
+updateTotals(cartStorage.totalCost, cartStorage.totalCount);
 
 
 

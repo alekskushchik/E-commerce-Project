@@ -13,7 +13,7 @@ var products = window.catalog,
     var totals = localStorage.getItem('cartStorage');
     if (totals) {
         document.querySelector('#amount').textContent = "(" + shoppingCart.totalCount + ")";
-        document.querySelector('#total-cost').textContent = String.fromCharCode(163) + shoppingCart.totalCost.toFixed(2);
+        document.querySelector('#total-cost').textContent = "£" + shoppingCart.totalCost;
     }
 })();
 

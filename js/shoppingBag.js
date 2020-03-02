@@ -6,11 +6,11 @@ var shoppingCart = JSON.parse(localStorage.getItem('cartStorage'));
     var totals = localStorage.getItem('cartStorage');
     if (totals) {
         document.querySelector('#amount').textContent = "(" + shoppingCart.totalCount + ")";
-        document.querySelector('#total-cost').textContent = "£" + shoppingCart.totalCost.toFixed(2);
+        document.querySelector('#total-cost').textContent = "£" + shoppingCart.totalCost;
     }
 })();
 
-    function renderShoppingBag() {
+function renderShoppingBag() {
         let htmlItem = '';
         for (var i = 0; i < shoppingCart.cart.length; i++) {
             htmlItem += `
@@ -24,13 +24,23 @@ var shoppingCart = JSON.parse(localStorage.getItem('cartStorage'));
         <p>Color: <span class="color">${shoppingCart.cart[i].colors}</span></p>
         <p>Size: <span class="size">${shoppingCart.cart[i].sizes}</span></p>
         <p>Quantity: &nbsp;<img src="img/desktop/minus.png" alt="">&nbsp;<span>1</span>&nbsp;<img src="img/desktop/plus.png" alt=""></p>
-        <a href="#" class="remove-item-from-bag"">Remove item</a>
+        <a href="#" class="remove-item-from-bag" data-set-id="${shoppingCart.cart[i].id}">Remove item</a>
     </div>
 </div>`;
         }
         cartContainer.innerHTML = htmlItem;
     }
-    renderShoppingBag();
+renderShoppingBag();
 
-    var totalCartPrice = document.querySelector('#total-price');
+    var removeButton = document.getElementsByClassName('remove-item-from-bag');
+    for (let i = 0; i < shoppingCart.cart.length; i++) {
+        removeButton[i].addEventListener('click', function () {
+            shoppingCart.cart.splice(i, 1);
+            localStorage.setItem('cartStorage', JSON.stringify(shoppingCart.cart));
+            renderShoppingBag();
+            location.reload()
+        })
+    }
+
+var totalCartPrice = document.querySelector('#total-price');
     totalCartPrice.textContent = `£${shoppingCart.totalCost.toFixed(2)}`;
