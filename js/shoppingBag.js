@@ -9,17 +9,13 @@ var shoppingCart = JSON.parse(localStorage.getItem('cartStorage'));
         document.querySelector('#total-cost').textContent = "£" + shoppingCart.totalCost;
     }
 })();
-window.updateTotals = function (totalCost, totalCount) {
-    var totalCostField = document.querySelector('#total-cost');
-    var totalCountField = document.querySelector('#amount');
-    totalCostField.textContent = String.fromCharCode(163) + totalCost;
-    totalCountField.textContent = '(' + totalCount + ')';
-};
+
 function renderShoppingBag() {
+
         let htmlItem = '';
         for (var i = 0; i < shoppingCart.cart.length; i++) {
             htmlItem += `
-    <div class="shopping-bag__item">
+    <div class="shopping-bag__item" data-id="${shoppingCart.cart[i].id}>
     <div class="shopping-bag__image">
         <img src="${shoppingCart.cart[i].thumbnail}" alt="">
     </div>
@@ -28,8 +24,8 @@ function renderShoppingBag() {
         <p class="price">£${shoppingCart.cart[i].price}</p>
         <p>Color: <span class="color">${shoppingCart.cart[i].colors}</span></p>
         <p>Size: <span class="size">${shoppingCart.cart[i].sizes}</span></p>
-        <p>Quantity: &nbsp;<img src="img/desktop/minus.png" alt="">&nbsp;<span>1</span>&nbsp;<img src="img/desktop/plus.png" alt=""></p>
-        <a href="#" class="remove-item-from-bag" data-set-id="${shoppingCart.cart[i].id}">Remove item</a>
+        <p>Quantity: &nbsp;<img class="quantity-minus" src="img/desktop/minus.png" alt="">&nbsp;<span class="quantity">1</span>&nbsp;<img class="quantity-plus" src="img/desktop/plus.png" alt=""></p>
+        <a href="#" class="remove-item-from-bag">Remove item</a>
     </div>
 </div>`;
         }
@@ -57,5 +53,34 @@ renderShoppingBag();
             location.reload()
         })
     }
+
+    var emptyBag = document.querySelector('#clear-bag');
+    emptyBag.addEventListener('click', function () {
+        let cart = {
+            cart: [],
+            totalCost: 0,
+            totalCount: 0
+        };
+        localStorage.setItem('cartStorage', JSON.stringify(cart));
+        renderShoppingBag();
+        location.reload();
+    });
+
+
+var quantity = document.querySelector('.quantity');
+var plus = document.querySelectorAll('.quantity-plus');
+console.log(plus)
+for (var i =0; i < plus.length; i++) {
+    plus[i].addEventListener('click', function () {
+        shoppingCart.cart.quantity = 1;
+        shoppingCart.cart.quantity += 1;
+        quantity.textContent = shoppingCart.cart.quantity;
+        localStorage.setItem('cartStorage', JSON.stringify(shoppingCart));
+        console.log(this.parentElement.parentElement.parentElement)
+    })
+}
+
+
 var totalCartPrice = document.querySelector('#total-price');
     totalCartPrice.textContent = `£${shoppingCart.totalCost.toFixed(2)}`;
+

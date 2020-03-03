@@ -24,8 +24,8 @@
             </div>
         </div>
 
-        <button type="button" id="dropdown-button" class="dropdown-menu-button"><img src="img/icons/nav_open.png" alt="menu"></button>
-        <button type="button" id="close-dropdown" class="hidden-button dropdown-menu-button"><img src="img/icons/menu_close.png" alt="close button"></button>
+        <button type="button" id="dropdown-button" class="dropdown-menu-button"><img src="img/desktop/nav_open.png" alt="menu"></button>
+        <button type="button" id="close-dropdown" class="hidden-button dropdown-menu-button"><img src="img/desktop/menu_close.png" alt="close button"></button>
         <nav id="dropdown-menu" class="hidden-menu">
             <ul class="navigation-links-container">
                 <li><a href="#">Women</a></li>
@@ -53,10 +53,17 @@
         <div class="promotion-bar">
             <p>You've qualified for Free UK Next Day Delivery on your order. Don't forget to enter the code <span>nexday</span> at checkout</p>
         </div>
-        <a class="bottom-section__button" href="#">Checkout</a>
-        <div id="bag-total">
-            <p>Applied discount: <span id="discount">£0.00</span></p>
-            <p>Total price: <span id="total-price">£0.00</span></p>
+        <div class="bottom-section">
+            <div>
+                <a href="#" id="clear-bag">Empty bag</a>
+            </div>
+            <div>
+                <button class="bottom-section__button" type="button">Checkout</button>
+            </div>
+            <div id="bag-total">
+                <p>Applied discount: <span id="discount">£0.00</span></p>
+                <p>Total price: <span id="total-price">£0.00</span></p>
+            </div>
         </div>
     </main>
     <footer>
@@ -121,7 +128,6 @@
         </div>
     </footer>
 </div>
-
 
 <script src="js/lodash.js"></script>
 <script src="data/catalog.js" ></script>

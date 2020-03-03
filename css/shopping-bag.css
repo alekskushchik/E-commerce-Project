@@ -1,10 +1,15 @@
 .bottom-bar {
+    max-width: 1300px;
     width: 100%;
     float: left;
     margin: 0;
-    height: 46px;
+    height: 65px;
+    line-height: 65px;
+    font-family: 'OpenSans-Bold', sans-serif;
+    font-size: 22px;
+    letter-spacing: 0.03em;
+    border-top: 1px solid #e5e5e5;
     border-bottom: 1px solid #e5e5e5;
-    font-size: 26px;
 }
 .shopping-bag {
     margin-top: 30px;
@@ -83,6 +88,13 @@
     letter-spacing: 0.03em;
     color: #f14a58;
 }
+.bottom-section {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
 .promotion-bar {
     margin-bottom: 30px;
     max-width: 1300px;
@@ -94,14 +106,23 @@
     font-family: 'OpenSans-Bold', sans-serif;
     font-size: 12px;
     letter-spacing: 0.03em;
+    text-align: center;
 }
 .promotion-bar p span {
     color: #f14a58;
 }
+#clear-bag {
+    width: 33.33%;
+    border: none;
+    font-family: 'Roboto-Bold', sans-serif;
+    font-size: 13px;
+    letter-spacing: 0.03em;
+}
+button.bottom-section__button {
+    margin-bottom: 0;
+}
 #bag-total {
-    position: absolute;
-    right: 0;
-    bottom: 110px;
+    display: block;
 }
 #bag-total p:first-child {
     margin: 0 auto 13px;

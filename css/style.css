@@ -64,10 +64,7 @@ header {
 .bag img {
     margin-right: 14px;
 }
-.navigation-container {
-    display: flex;
-    align-items: center;
-}
+
 #dropdown-button, #close-dropdown {
     border-left: 1px solid #e5e5e5;
     box-sizing: border-box;
@@ -91,15 +88,20 @@ header {
 }
 
 #search {
+    width: 120px;
     position: relative;
+    height: 96px;
+    line-height: 96px;
 }
+
 input {
-    color: #e5e5e5;
+    color: #747474;
     font-family: 'OpenSans-Bold', sans-serif;
     font-size: 12px;
     border: none;
     border-bottom: 1px solid #e5e5e5;
     padding: 8px 0;
+    outline: none;
 }
 #search img {
     position: absolute;
@@ -113,18 +115,16 @@ input {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    flex-wrap: nowrap;
     background-color: white;
-    box-shadow: 1px 150px 36px 33px rgba(0,0,0,0.75);
     line-height: 70px;
 }
 .hidden-menu {
     display: none;
 }
 .navigation-links-container {
-    float: left;
     display: flex;
     flex-direction: row;
-    margin: 7px 64px 7px 0;
     padding-left: 0;
     list-style-type: none;
     font-family: 'OpenSans-Bold', sans-serif;
@@ -136,7 +136,9 @@ input {
     line-height: 70px;
     height: 70px;
 }
-
+.navigation-links-container li:last-child {
+    margin-right: 0;
+}
 .top-section {
     display: flex;
     flex-direction: row;
@@ -460,9 +462,10 @@ button.bottom-section__button:hover {
     margin-left: 38px;
     display: inline-block;
 }
+
 @media only screen and (min-width: 1024px) {
     .navigation-links-container li {
-        margin-right: 45px;
+        margin-right: 66px;
     }
 }
 @media only screen and (min-width: 768px) {
@@ -474,7 +477,6 @@ button.bottom-section__button:hover {
         font-size: 12px;
         font-weight: bold;
         box-shadow: none;
-        display: block;
         clear: both;
     }
 }

@@ -5,7 +5,7 @@ var newArrivals = document.querySelector('.new-arrivals');
 
 var dropdownMenuButton = document.querySelector('#dropdown-button');
 var closeMenuButton = document.querySelector('#close-dropdown');
-var container = document.querySelector('.container');
+var container = document.querySelector('.wrapper');
 
 dropdownMenuButton.addEventListener('click', function() {
     toggleDropdownMenu();
@@ -66,7 +66,7 @@ function searchByStyle() {
     let input = document.querySelector('input');
     let filter = input.value.toUpperCase();
     let products = document.getElementsByClassName('catalog-item');
-    for (let i = 0; i < goods.length; i++) {
+    for (let i = 0; i < products.length; i++) {
         if (products[i].getAttribute('data-fashion').toUpperCase().indexOf(filter) > -1) {
             products[i].style.display = "";
         } else {

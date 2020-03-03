@@ -172,19 +172,25 @@ span.discount img {
 
     .selecting-filters-container {
         display: block;
-        border-bottom: 1px solid #e5e5e5;
         font-family: 'OpenSans-Bold', sans-serif;
         font-size: 16px;
         text-align: center;
         letter-spacing: .03em;
+        border-top: 1px solid #e5e5e5;;
+        border-bottom: 1px solid #e5e5e5;
     }
 
+    .selecting-filters-container option {
+        height: 65px;
+
+    }
     .filter-selection {
         width: 196px;
         display: flex;
         flex-direction: row;
         float: left;
         height: 65px;
+        margin-left: 18px;
         border-radius: 0;
         border: none;
         background: transparent url("../img/desktop/filter.png") no-repeat 90% center;

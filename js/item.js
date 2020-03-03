@@ -159,25 +159,14 @@ var storage = {
             totalCount: storage.cartProps.totalCount || 0,
             addItemToCart:
                 function(item) {
-                    if(getIndexOfItem(this.cart, item) !== -1) {
-                        this.cart[getIndexOfItem(this.cart, item)].amount++;
-                    } else {
-                        item.id = this.cart.length;
-                        this.cart.push(item);
-                    }
+                    item.id = this.cart.length;
+                    item.quantity = 1;
+                    this.cart.push(item);
                     this.totalCost += item.price;
                     this.totalCount += 1;
                     updateState(this.cart, this.totalCost, this.totalCount);
-                },
+                }
         };
-    function getIndexOfItem(array, item) {
-        for(var i = 0; i < array.length; i += 1) {
-            if(array[i].title === item.title && array[i].sizes === item.sizes && array[i].colors === item.colors) {
-                return i;
-            }
-        }
-        return -1;
-    }
 
     function updateState(cart, totalCost, totalCount) {
         storage.cartProps = {
