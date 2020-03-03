@@ -161,8 +161,9 @@ var storage = {
                 function(item) {
                     item.id = this.cart.length;
                     item.quantity = 1;
+                    item.sum = item.price * item.quantity;
                     this.cart.push(item);
-                    this.totalCost += item.price;
+                    this.totalCost += item.sum;
                     this.totalCount += 1;
                     updateState(this.cart, this.totalCost, this.totalCount);
                 }
