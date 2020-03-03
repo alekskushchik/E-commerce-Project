@@ -14,34 +14,36 @@ function renderShoppingBag() {
         let htmlItem = '';
         for (var i = 0; i < shoppingCart.cart.length; i++) {
             htmlItem += `
-    <div class="shopping-bag__item" data-id="${shoppingCart.cart[i].id}>
-    <div class="shopping-bag__image">
-        <img src="${shoppingCart.cart[i].thumbnail}" alt="">
-    </div>
+    <div class="shopping-bag__item" data-id="${shoppingCart.cart[i].id}">
+        <div class="shopping-bag__image">
+            <img src="${shoppingCart.cart[i].thumbnail}" alt="">
+        </div>
     <div class="shopping-bag__info">
         <h4 class="title">${shoppingCart.cart[i].title}</h4>
         <p class="price">£${shoppingCart.cart[i].price}</p>
         <p>Color: <span class="color">${shoppingCart.cart[i].colors}</span></p>
         <p>Size: <span class="size">${shoppingCart.cart[i].sizes}</span></p>
-        <p>Quantity: &nbsp;<img class="quantity-minus" src="img/desktop/minus.png" alt="">&nbsp;<span class="quantity">1</span>&nbsp;<img class="quantity-plus" src="img/desktop/plus.png" alt=""></p>
+        <p>Quantity: &nbsp;<img class="quantity-minus" src="img/desktop/minus.png" alt="" data-id="${shoppingCart.cart[i].id}">&nbsp;<span class="quantity">${shoppingCart.cart[i].quantity}</span>&nbsp;<img class="quantity-plus" src="img/desktop/plus.png" alt="" data-id="${shoppingCart.cart[i].id}"></p>
         <a href="#" class="remove-item-from-bag">Remove item</a>
+    </div>    
     </div>
 </div>`;
         }
         cartContainer.innerHTML = htmlItem;
+
 }
 renderShoppingBag();
 
     var removeButton = document.getElementsByClassName('remove-item-from-bag');
     for (let i = 0; i < shoppingCart.cart.length; i++) {
         removeButton[i].addEventListener('click', function () {
-            shoppingCart.totalCost -= shoppingCart.cart[i].price;
+            shoppingCart.totalCost -= shoppingCart.cart[i].price * shoppingCart.cart[i].quantity;
             shoppingCart.totalCount -= 1;
             shoppingCart.cart.splice(i, 1);
             if (shoppingCart.cart.length) {
                 localStorage.setItem('cartStorage', JSON.stringify(shoppingCart));
             } else {
-                let cart = {
+                var cart = {
                     cart: [],
                     totalCost: 0,
                     totalCount: 0
@@ -65,26 +67,58 @@ renderShoppingBag();
         location.reload();
     });
 
-
-
-var quantity = +document.querySelector('.quantity').textContent;
-console.log(quantity);
 var plus = document.querySelectorAll('.quantity-plus');
-
 for (var i =0; i < plus.length; i++) {
     plus[i].addEventListener('click', function () {
+        shoppingCart.totalCost = 0;
         for (var j = 0; j < shoppingCart.cart.length; j++){
+        if (+this.getAttribute('data-id') === shoppingCart.cart[j].id){
+            shoppingCart.totalCount += 1;
             shoppingCart.cart[j].quantity += 1;
             shoppingCart.cart[j].sum = shoppingCart.cart[j].price * shoppingCart.cart[j].quantity;
-                shoppingCart.totalCost = 0;
-                shoppingCart.totalCost +=  shoppingCart.cart[j].sum;
-            shoppingCart.totalCount += 1;
+            for (i = 0; i < shoppingCart.cart.length; i++){
+                shoppingCart.totalCost += shoppingCart.cart[i].sum;
+            }
             localStorage.setItem('cartStorage', JSON.stringify(shoppingCart));
+            renderShoppingBag();
             location.reload();
+            }
+        }
+    })
+}
+var minus = document.querySelectorAll('.quantity-minus');
+for (var i =0; i < minus.length; i++) {
+    minus[i].addEventListener('click', function () {
+        shoppingCart.totalCost = 0;
+        for (var j = 0; j < shoppingCart.cart.length; j++){
+            if (+this.getAttribute('data-id') === shoppingCart.cart[j].id){
+                shoppingCart.totalCount--;
+                shoppingCart.cart[j].quantity--;
+                if (shoppingCart.cart[j].quantity < 0){
+                    shoppingCart.cart[j].quantity = 0
+                }
+                if (shoppingCart.totalCount < 0){
+                    shoppingCart.totalCount = 0
+                }
+                shoppingCart.cart[j].sum = shoppingCart.cart[j].price * shoppingCart.cart[j].quantity;
+                for (i = 0; i < shoppingCart.cart.length; i++){
+                    shoppingCart.totalCost -= shoppingCart.cart[i].sum;
+                }
+                localStorage.setItem('cartStorage', JSON.stringify(shoppingCart));
+                renderShoppingBag();
+                location.reload();
+            }
         }
     })
 }
 
+
+var quantity = document.querySelectorAll('.quantity');
+for (i = 0; i < quantity.length; i++){
+    quantity[i].textContent = shoppingCart.cart[i].quantity;
+}
+
+
+
 var totalCartPrice = document.querySelector('#total-price');
     totalCartPrice.textContent = `£${shoppingCart.totalCost.toFixed(2)}`;
-

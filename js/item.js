@@ -6,7 +6,7 @@ var shoppingCart = JSON.parse(localStorage.getItem('cartStorage'));
     var totals = localStorage.getItem('cartStorage');
     if (totals) {
         document.querySelector('#amount').textContent = "(" + shoppingCart.totalCount + ")";
-        document.querySelector('#total-cost').textContent = "£" + shoppingCart.totalCost;
+        document.querySelector('#total-cost').textContent = "£" + shoppingCart.totalCost.toFixed(2);
     }
 })();
 
