@@ -38,6 +38,7 @@ header {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+    border-bottom: 1px solid #e5e5e5;
 }
 
 #logo {
@@ -148,7 +149,7 @@ nav {
 .navigation-links-container li {
     line-height: 70px;
     height: 70px;
-    margin: 0 25px;
+    margin: 0 11px;
 }
 
 .navigation-links-container li:first-child {
@@ -258,22 +259,22 @@ p.new-icon {
 }
 
 .middle-section__items {
+    max-width: 1180px;
     position: relative;
     margin: 70px auto 0;
     height: auto;
     display: flex;
     align-items: center;
-    /*flex-wrap: wrap;*/
 }
 .middle-section__items-container:first-child {
-    width: auto;
+    width: 70%;
     margin: 0 auto;
     display: flex;
     align-items: center;
 }
 
 .middle-section__items-container:nth-child(2) {
-    width: auto;
+    width: 30%;
     margin: 0 auto;
     display: flex;
     align-items: center;
@@ -294,16 +295,15 @@ p.new-icon {
     color: #c6c6c6;
     position: absolute;
     top: -50px;
-    left: 0px;
+    left: 0;
 }
 
 .middle-section__items span {
-    width: 182px;
+    width:  8vw;;
     font-family: 'Roboto-Bold', sans-serif;
     font-size: 34px;
     letter-spacing: .03em;
     display: block;
-    margin-bottom: 60px;
 }
 
 .middle-section__items > div img:first-child,
@@ -320,34 +320,32 @@ p.new-icon {
 
 span.best-offer-old-price {
     position: absolute;
-    left: -20px;
-    top: -20px;
+    top: -40px;
     font-size: 26px;
     color: #757575;
 }
 #crossline {
     width: 90px;
     position: absolute;
-    left: 50px;
-    top: 20px;
+    top: -60px;
 }
 
 .middle-section__items div:nth-child(2n+1) img:nth-child(2) {
-    width: auto;
+    width: 100%;
     margin: 40px 0 45px;
 }
 
 button.middle-section__button {
+    position: absolute;
     background: transparent;
     outline: none;
     right: 20px;
-    bottom: 247px;
     margin: 84px auto 0;
     font-family: 'OpenSans-Bold', sans-serif;
     font-size: 24px;
     letter-spacing: .03em;
     color: #000;
-    padding: 27px 104px 24px;
+    padding: 2vw 5vw 2vw;
     text-decoration: none;
     border: 1px solid #e5e5e5;
     box-sizing: border-box;
@@ -390,7 +388,6 @@ p.items__price {
 
 .new-arrivals img {
     margin: 40px 0 30px;
-    width: 240px;
 }
 
 .catalog-item {
@@ -401,15 +398,11 @@ p.items__price {
 .catalog-image {
     position: relative;
     background: #000;
-    width: 240px;
-    height: 340px;
 }
 
 .catalog-image a img {
     opacity: 1;
     transition: opacity 124ms linear;
-    width: 100%;
-    height: 100%;
     display: block;
 }
 
@@ -474,11 +467,11 @@ button.bottom-section__button:hover {
 }
 
 .top-footer {
-    max-width: 1440px;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-}
+     max-width: 1440px;
+     display: flex;
+     flex-direction: row;
+     justify-content: space-between;
+ }
 
 .footer-links, .contact-links {
     width: 50%;
@@ -543,6 +536,16 @@ button.bottom-section__button:hover {
 .contact-links div:nth-child(3) img {
     margin-right: 25px;
 }
+.follow-buttons-container {
+    display: none;
+}
+button.button-facebook, button.button-twitter  {
+    height: 20px;
+    width: 20px;
+    border: none;
+    outline: none;
+    background: transparent;
+}
 
 .bottom-footer {
     height: 80px;
@@ -551,31 +554,37 @@ button.bottom-section__button:hover {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    align-content: center;
     font-family: 'Roboto-Bold', sans-serif;
     font-size: 12px;
 }
-
-.bottom-footer span:first-child {
-    font-family: 'OpenSans-Bold', sans-serif;
-    font-size: 18px;
+.bottom-footer div:first-child, .bottom-footer ul {
+    width: 38%;
 }
 
+.bottom-footer div:nth-child(2) {
+text-align: center
+}
 .share-bgr {
     position: absolute;
     z-index: -1;
+    bottom: 30px;
 }
 
 .bottom-footer ul {
+    text-align: right;
+    padding-left: 0;
     list-style: none;
 }
 
 .bottom-footer ul > li {
-    margin-left: 38px;
+    margin-right: 32px;
     display: inline-block;
-}
 
-/* On screens that are 768px or more */
+}
+.footer-navigation {
+    display: none;
+}
+/* On screens that are 768px or less */
 @media only screen and (max-width: 768px) {
     .wrapper {
         margin: auto 39px;
@@ -596,6 +605,9 @@ button.bottom-section__button:hover {
     .top-section {
         margin: 0 auto;
     }
+    article:first-child {
+        width: 100%;
+    }
     article h1 {
         font-size: 22px;
         top: 37px;
@@ -609,12 +621,39 @@ button.bottom-section__button:hover {
         font-size: 40px;
     }
     .middle-section__items {
+        width: 100%;
         margin-bottom: 75px;
-        flex-wrap: wrap;
+        flex-wrap: nowrap;
     }
+    .middle-section__items-container:first-child {
+        width: 71%;
+    }
+    .middle-section__items-container:nth-child(2) {
+        width: 29%;
+    }
+    .middle-section__items-container:first-child div:nth-child(1),
+    .middle-section__items-container:first-child div:nth-child(3){
+        width: 48%;
+    }
+    .middle-section__items-container:first-child div:nth-child(2),
+    .middle-section__items-container:nth-child(2) div:nth-child(1) {
+        width: 4%;
+        padding: 4%;
+        margin: auto;
+    }
+    .middle-section__items-container:nth-child(2) div:nth-child(2) {
+        width: 90%;
+    }
+    .middle-section__items div:nth-child(2n+1) img:nth-child(2) {
+        width: auto;
+    }
+
     button.middle-section__button {
         display: block;
-        position: static;
+        top: 88%;
+        left: 50%;
+        transform: translate(-50%, 0);
+        padding: 28px 55px;
     }
     .new-arrivals {
         order: 3;
@@ -622,17 +661,43 @@ button.bottom-section__button:hover {
     }
     .catalog-image {
         margin-right: 39px;
-        width: 204px;
-        height: 289px;
     }
     .catalog-item {
         width: 33.33%;
+    }
+    button.bottom-section__button {
+        padding: 28px 55px;
+    }
+    .contact-links div:nth-child(3) p {
+    display: none;
+    }
+    .contact-links {
+        display: flex;
+        flex-direction: column;
+    }
+    .contact-links div:first-child, .contact-links div:nth-child(2) {
+        width: 100%;
+    }
+    .contact-links div:last-child {
+        margin-top: 94px;
+    }
+    .bottom-footer {
+        font-size: 12px;
+    }
+
+    .bottom-footer ul > li {
+        margin-right: 17px;
+        display: inline-block;
     }
 }
 
 
 
 @media (min-width: 375px) and (max-width: 767px) {
+    header {
+        margin: 0 auto;
+        padding: 0;
+    }
     .wrapper {
         margin: auto 20px;
     }
@@ -648,70 +713,103 @@ button.bottom-section__button:hover {
     .right-content span:first-child {
         display: none !important;
     }
+
     .navigation-menu {
         display: none;
     }
+
     #dropdown-button, #close-dropdown {
         display: block;
+        border-left: 1px solid #e5e5e5;
+        margin-left: 25px;
     }
+
     .openMenu {
         flex-direction: column;
         height: 100vh;
     }
+
     .openMenu a {
         font-size: 25px;
     }
+
     .navigation-menu {
         flex-direction: column;
-     }
+    }
+
     .navigation-links-container {
         display: block;
     }
+
     .navigation-links-container li {
         margin: 0;
+        padding: 11px;
     }
+
     .hidden {
         display: none !important;
     }
+
     #search input {
         display: block;
     }
+
     article:last-child {
         display: none;
     }
+
     .middle-section {
         position: relative;
         margin-top: 53px;
         padding: 0;
     }
+
     .middle-section h1, .bottom-section h1 {
         font-size: 26px;
     }
+
     .middle-section p {
-        font-size: 12px;
-        margin: 4px auto 30px;
+        line-height: 30px;
     }
+
     .middle-section__items {
         justify-content: space-between;
+        flex-wrap: wrap;
+    }
+
+    .middle-section__items-container:first-child {
+        width: 100%;
+        align-items: center;
     }
     .middle-section__items div:nth-child(2n+1) {
         margin: 0 auto;
     }
+
+    .middle-section__items-container:first-child div:nth-child(2),
+    .middle-section__items-container:nth-child(2) div:nth-child(1) {
+        width: 2%;
+        padding: 2%;
+        margin: auto;
+    }
     .middle-section__items div:nth-child(2n+1) img:nth-child(2) {
         margin: 30px auto;
-        height: 223px;
+        width: 100%;
     }
+
     .middle-section__items div:nth-child(2) {
-        width: 12px;
-        height: 13px;
+        margin-top: 30px;
     }
-    .middle-section__items span {
+    span.best-offer-old-price {
+        font-size: 18px;
+    }
+    span.best-offer-discounted-price {
         font-size: 26px;
     }
     .middle-section__items div:nth-child(4) {
         position: absolute;
         bottom: 80px;
     }
+
     .middle-section__items div:nth-child(5) {
         font-size: 26px;
         position: absolute;
@@ -719,16 +817,76 @@ button.bottom-section__button:hover {
         left: 50%;
         transform: translate(-50%, 0);
     }
+    .middle-section__items-container:nth-child(2) div:nth-child(1) {
+        width: 12px;
+        margin: 25px;
+    }
+    button.middle-section__button {
+        padding: 28px 55px;
+        margin-bottom: 100px;
+    }
     .catalog-item {
-        width: 50%;
+        width: 48%;
+        margin: auto;
+    }
+    .catalog-image {
+        width: 100%;
+    }
+    .new-arrivals img {
+        width: 100%;
+    }
+    .catalog-info h4 {
+        font-size: 12px;
     }
     .top-footer {
         flex-wrap: wrap;
     }
+
     .footer-links, .contact-links {
         width: 100%;
+        border-left: 0;
     }
-    .contact-links div:nth-child(3) p {
+.contact-links {
+    padding-left: 0;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+    .contact-links div:nth-child(1) {
+        border-right: 1px solid #e5e5e5;
+    }
+    .contact-links div:nth-child(3){
         display: none;
+    }
+    .contact-links div:first-child, .contact-links div:nth-child(2) {
+        width: 47%;
+        padding: 1%;
+        margin: 0 auto;
+    }
+    .bottom-footer div:first-child {
+        width: 70%;
+    }
+    .bottom-footer ul {
+        display: none;
+    }
+    .middle-footer {
+        display: flex;
+        align-items: center;
+        border-bottom: 1px solid #e5e5e5;
+    }
+    .follow-buttons-container {
+        display: block;
+        width: 25%;
+    }
+    .footer-navigation {
+        width: 75%;
+        float: left;
+        display: flex;
+        padding-left: 0;
+        list-style: none;
+        font-family: 'Roboto-Bold', sans-serif;
+        font-size: 10px;
+    }
+    .footer-navigation li {
+        margin: 3%;
     }
 }

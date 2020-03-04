@@ -8,6 +8,7 @@ var products = window.catalog,
     items = document.getElementsByClassName('catalog-item'),
     input = document.querySelector('input'),
     filter = input.value.toUpperCase();
+
 var burgerIcon = document.querySelector("#dropdown-button");
 var closeBurgerIcon = document.querySelector("#close-dropdown");
 var menuContainer = document.querySelector(".navigation-menu");
@@ -77,13 +78,13 @@ sortByArrivals();
     var newLabel = document.querySelectorAll('.new-icon');
     for (var j = 0; j < newLabel.length; j++){
         if (products[j].hasNew === false){
-            newLabel[j].classList.add('hidden');
+            newLabel[j].classList.toggle('hidden-discount');
         }
     }
     var discount = document.querySelectorAll('.discount');
     for (var k = 0; k < discount.length; k++){
         if (products[k].discountedPrice === products[k].price || products[k].discountedPrice === null){
-            discount[k].classList.add('hidden');
+            discount[k].classList.toggle('hidden-discount');
         }
     }
 

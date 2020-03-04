@@ -9,6 +9,16 @@
     font-size: 16px;
     letter-spacing: .03em;
 }
+.page-heading {
+    font-family: 'OpenSans-Bold', sans-serif;
+    font-size: 16px;
+    margin: 0;
+    padding-left: 5%;
+    line-height: 50px;
+    height: 55px;
+    border-top: 1px solid #e5e5e5;
+    border-bottom: 1px solid #e5e5e5;
+}
 
 .item {
     margin-top: 60px;
@@ -17,9 +27,8 @@
 }
 
 .item-gallery {
-    height: 590px;
-    display: flex;
-    flex-direction: row;
+    font-size: 0;
+    margin-top: 5%;
 }
 
 .gallery-bar {
@@ -38,7 +47,6 @@
     height: 33.33%;
     box-sizing: border-box;
     opacity: 1;
-    transition: opacity 1s ease-in-out;
 }
 
 .item-image-thumb:hover {
@@ -119,4 +127,47 @@ button.item-prop:hover {
     flex-direction: row;
     justify-content: left;
     align-items: baseline;
+}
+
+@media only screen and (max-width: 768px) {
+    .item {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .item-gallery {
+        width: 90%;
+        margin: auto 5%;
+    }
+    .item-image-full {
+        width: 75%;
+        float: left;
+    }
+    .gallery-bar {
+        width: 25%
+    }
+}
+
+
+
+
+@media only screen and (min-width: 375px) and (max-width: 767px) {
+    .item-gallery {
+        flex-wrap: wrap;
+        font-size: 0;
+        margin-top: 5%;
+    }
+    .item-image-full {
+        width: 100%;
+        transition: opacity 1s ease-in-out;
+    }
+    .gallery-bar {
+        width: 100%;
+       flex-direction: row;
+    }
+    .item-image-thumb {
+        width: 33.33%;
+    }
+    .item-info {
+        margin: auto;
+    }
 }

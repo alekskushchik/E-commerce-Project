@@ -12,6 +12,7 @@ main h2 {
     letter-spacing: .03em;
     text-align: center;
 }
+
 .promo h2 span {
     color: #f14a58;
 }
@@ -48,6 +49,20 @@ span.discount img {
     left: -15px;
     top: -5px;
 }
+.hidden-discount {
+    visibility: hidden;
+    position: absolute;
+    left: 0;
+}
+.catalog-item {
+    width: 21.25%;
+}
+.catalog-image a img {
+    width: 100%;
+}
+.catalog-info {
+    text-align: center;
+}
 .catalog-item:nth-child(4n+1) {
     margin-left: 0;
 }
@@ -69,7 +84,6 @@ span.discount img {
     position: absolute;
 }
 .catalog-bottom-section {
-    max-width: 1300px;
     display: flex;
     flex-direction: row;
     border-top-width: 1px;
@@ -77,7 +91,7 @@ span.discount img {
     border-image: linear-gradient(to left, #fff 0%, #999999 100%, #fff 0%);
 }
 .catalog-bottom-section img {
-    height: 100%;
+    width: 100%;
 }
 .catalog-bottom-section div {
     position: relative;
@@ -152,7 +166,6 @@ span.discount img {
     color: #000;
 }
 
-@media only screen and (min-width: 1024px) {
     .dropdown-filters, .showing-filters-button, .selected-item-properties {
         display: none;
     }
@@ -219,5 +232,43 @@ span.discount img {
     }
     .shopping-bag-heading {
         font-size: 24px;
+    }
+
+
+@media only screen and (max-width: 768px) {
+    .catalog-item {
+        width: 33.33%;
+    }
+    .promo p {
+        line-height: 30px;
+    }
+    .catalog-bottom-section div:first-child {
+        width: 66.66%;
+    }
+    .catalog-bottom-section div:nth-child(2){
+        width: 33.33%;
+    }
+    .catalog-bottom-section div:nth-child(3){
+        display: none;
+    }
+    .catalog-bottom-section div:first-child h4,
+    .catalog-bottom-section div:nth-child(2) h4 {
+        font-size: 22px;
+        text-align: center;
+    }
+    .contact-links {
+        border-left: none;
+    }
+}
+
+@media (min-width: 375px) and (max-width: 767px) {
+    .catalog-item {
+        width: 49%;
+    }
+    .catalog-bottom-section div:first-child {
+        width: 100%;
+    }
+    .catalog-bottom-section div:nth-child(2){
+        display: none;
     }
 }
