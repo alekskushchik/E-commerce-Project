@@ -22,16 +22,17 @@
             </div>
             <div class="right-content">
                 <span><a href="#">E-mail sign up</a></span>
-                <div class="bag"><a href="shopping-bag.html"><img src="img/desktop/ico_bag.png" alt="ico_bag">Bag <span id="total-cost">£0</span><span id="amount">(0)</span></a></div>
+                <div class="bag"><a href="shopping-bag.html"><img src="img/desktop/ico_bag.png" alt="ico_bag">Bag <span
+                        id="total-cost">£0</span><span id="amount">(0)</span></a></div>
                 <button type="button" id="dropdown-button" class="dropdown-menu-button">
                     <img src="img/desktop/nav_open.png" alt="menu">
                 </button>
-                <button type="button" id="close-dropdown" class="dropdown-menu-button">
+                <button type="button" id="close-dropdown" class="hidden dropdown-menu-button">
                     <img src="img/desktop/menu_close.png" alt="close button">
                 </button>
             </div>
         </div>
-    <nav class="navigation-menu">
+        <nav class="navigation-menu">
             <ul class="navigation-links-container">
                 <li><a href="#">Women</a></li>
                 <li><a href="#">Men</a></li>
@@ -46,58 +47,68 @@
                 <input type="text" placeholder="Style name" onkeyup="searchByStyle()">
                 <img src="img/desktop/search-ico.png" alt="search-icon">
             </div>
-    </nav>
+        </nav>
     </header>
 
     <main>
         <div class="top-section">
             <article>
-                <a href="item.html"><img src="img/desktop/black.png" alt=""><h1>Nike Red</h1></a>
+                <a href="item.html"><img src="img/desktop/black.png" alt="">
+                    <h1>Nike Red</h1></a>
             </article>
             <article>
-                <a href="catalog.html"><img src="img/desktop/photo.png" alt=""><h1>Caps & Hats</h1><p>Sale -50%</p></a>
+                <a href="catalog.html"><img src="img/desktop/photo.png" alt="">
+                    <h1>Caps & Hats</h1>
+                    <p>Sale -50%</p></a>
             </article>
         </div>
 
         <div class="middle-section">
             <h1>Best offer</h1>
-            <p>This offer is valid in-store and online. Prices displayed reflect this additional discount. This offer ends at 11:59 GMT on March 1st 2019</p>
+            <p>This offer is valid in-store and online. Prices displayed reflect this additional discount. This offer
+                ends at 11:59 GMT on March 1st 2019</p>
             <div class="middle-section__items">
-                <div>
-                    <img src="img/desktop/row-up.png" alt="">
-                    <img src="img/desktop/photo-1.png" alt="">
-                    <p class="new-icon">new</p>
-                    <p class="items__title">Only Skinny Jeans</p>
-                    <p class="items__price">£65.50</p>
-                    <img src="img/desktop/row-down.png" alt="">
+                <div class="middle-section__items-container">
+                    <div>
+                        <img src="img/desktop/row-up.png" alt="">
+                        <img src="img/desktop/photo-1.png" alt="">
+                        <p class="new-icon">new</p>
+                        <p class="items__title">Only Skinny Jeans</p>
+                        <p class="items__price">£65.50</p>
+                        <img src="img/desktop/row-down.png" alt="">
+                    </div>
+                    <div>
+                        <span>+</span>
+                    </div>
+                    <div>
+                        <img src="img/desktop/row-up.png" alt="">
+                        <img src="img/desktop/photo-5.png" alt="">
+                        <p class="items__title">Levi’s Jeans for women</p>
+                        <p class="items__price">£95.50</p>
+                        <img src="img/desktop/row-down.png" alt="">
+                    </div>
                 </div>
-                <div>
-                    <span>+</span>
-                </div>
-                <div>
-                    <img src="img/desktop/row-up.png" alt="">
-                    <img src="img/desktop/photo-5.png" alt="">
-                    <p class="items__title">Levi’s Jeans for women</p>
-                    <p class="items__price">£95.50</p>
-                    <img src="img/desktop/row-down.png" alt="">
-                </div>
+
+                <div class="middle-section__items-container">
                 <div>
                     <span>=</span>
                 </div>
                 <div>
-                    <img src="img/desktop/crossline.png" alt="">
-                    <span>£161.00</span>
-                    <span>£146.00</span>
+                    <img id="crossline" src="img/desktop/crossline.png" alt="">
+                    <span class="best-offer-old-price">£161.00</span>
+                    <span class="best-offer-discounted-price">£146.00</span>
+                    <button class="middle-section__button" type="button">Add to bag</button>
+                </div>
                 </div>
             </div>
-        <button class="middle-section__button" type="button">Add to bag</button>
         </div>
 
         <div class="bottom-section">
             <h1>New arrivals</h1>
             <div class="new-arrivals"></div>
         </div>
-        <button class="bottom-section__button" type="button" onClick='location.href="catalog.html"'>All arrivals</button>
+        <button class="bottom-section__button" type="button" onClick='location.href="catalog.html"'>All arrivals
+        </button>
     </main>
 
     <footer>
@@ -154,7 +165,7 @@
             </div>
             <div>
                 <ul>
-                    <li>Legal notice </li>
+                    <li>Legal notice</li>
                     <li>Privacy policy</li>
                     <li>Site map</li>
                 </ul>
@@ -164,8 +175,8 @@
 </div>
 
 
-    <script src="js/lodash.js"></script>
-    <script src="data/catalog.js" ></script>
-    <script src="js/index.js"></script>
+<script src="js/lodash.js"></script>
+<script src="data/catalog.js"></script>
+<script src="js/index.js"></script>
 </body>
 </html>

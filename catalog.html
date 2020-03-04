@@ -15,16 +15,25 @@
 <div class="wrapper">
     <header>
         <div class="top-bar">
-            <div id="logo"><a href="index.html">Template</a></div>
+            <div id="logo">
+                <a href="index.html">
+                    <span class="full-logo">Template</span>
+                    <span class="abbr-logo">TL</span>
+                </a>
+            </div>
             <div class="right-content">
-                <span>E-mail sign up</span>
-                <div class="bag"><a href="shopping-bag.html"><img src="img/desktop/ico_bag.png" alt="ico_bag">Bag <span id="total-cost">£0</span><span id="amount">(0)</span></a></div>
+                <span><a href="#">E-mail sign up</a></span>
+                <div class="bag"><a href="shopping-bag.html"><img src="img/desktop/ico_bag.png" alt="ico_bag">Bag <span
+                        id="total-cost">£0</span><span id="amount">(0)</span></a></div>
+                <button type="button" id="dropdown-button" class="dropdown-menu-button">
+                    <img src="img/desktop/nav_open.png" alt="menu">
+                </button>
+                <button type="button" id="close-dropdown" class="hidden dropdown-menu-button">
+                    <img src="img/desktop/menu_close.png" alt="close button">
+                </button>
             </div>
         </div>
-
-        <button type="button" id="dropdown-button" class="dropdown-menu-button"><img src="img/desktop/nav_open.png" alt="menu"></button>
-        <button type="button" id="close-dropdown" class="hidden-button dropdown-menu-button"><img src="img/desktop/menu_close.png" alt="close button"></button>
-        <nav id="dropdown-menu" class="hidden-menu">
+        <nav class="navigation-menu">
             <ul class="navigation-links-container">
                 <li><a href="#">Women</a></li>
                 <li><a href="#">Men</a></li>

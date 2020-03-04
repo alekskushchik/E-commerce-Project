@@ -2,6 +2,25 @@
 var cartContainer = document.querySelector('.shopping-bag');
 var shoppingCart = JSON.parse(localStorage.getItem('cartStorage'));
 
+var burgerIcon = document.querySelector("#dropdown-button");
+var closeBurgerIcon = document.querySelector("#close-dropdown");
+var menuContainer = document.querySelector(".navigation-menu");
+
+burgerIcon.addEventListener('click', toggleNavigationMenu);
+closeBurgerIcon.addEventListener('click', toggleNavigationMenu);
+
+function toggleNavigationMenu () {
+    if (menuContainer.style.display === 'block') {
+        menuContainer.style.display = 'none';
+        burgerIcon.classList.toggle('hidden');
+        closeBurgerIcon.classList.toggle('hidden')
+    } else {
+        menuContainer.style.display = 'block';
+        document.querySelector('.navigation-menu').classList.add('openMenu');
+        burgerIcon.classList.toggle('hidden');
+        closeBurgerIcon.classList.toggle('hidden')
+    }
+}
 (function onloadCartTotals() {
     var totals = localStorage.getItem('cartStorage');
     if (totals) {
