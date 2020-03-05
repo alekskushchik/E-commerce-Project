@@ -14,8 +14,10 @@ a:hover {
 }
 
 .wrapper {
-    margin: 0 auto;
-    max-width: 1180px;
+    /*margin: 0 auto;*/
+    /*max-width: 1180px;*/
+    margin: 0 60px;
+    max-width: 1300px;
     display: flex;
     flex-direction: column;
     min-height: 100vh;
@@ -38,7 +40,6 @@ header {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    border-bottom: 1px solid #e5e5e5;
 }
 
 #logo {
@@ -458,6 +459,7 @@ button.bottom-section__button {
     text-decoration: none;
     border: 1px solid #e5e5e5;
     box-sizing: border-box;
+    white-space: nowrap;
 }
 
 button.bottom-section__button:hover {
@@ -694,6 +696,9 @@ text-align: center
 
 
 @media (min-width: 375px) and (max-width: 767px) {
+    .top-bar {
+        border-bottom: 1px solid #e5e5e5;
+    }
     header {
         margin: 0 auto;
         padding: 0;
@@ -743,7 +748,7 @@ text-align: center
 
     .navigation-links-container li {
         margin: 0;
-        padding: 11px;
+        padding: 6px;
     }
 
     .hidden {
