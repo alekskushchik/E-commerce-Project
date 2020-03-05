@@ -90,13 +90,16 @@ var plus = document.querySelectorAll('.quantity-plus');
 for (var i =0; i < plus.length; i++) {
     plus[i].addEventListener('click', function () {
         shoppingCart.totalCost = 0;
+        shoppingCart.totalDiscount = 0;
         for (var j = 0; j < shoppingCart.cart.length; j++){
             if (+this.getAttribute('data-id') === shoppingCart.cart[j].id){
                 shoppingCart.totalCount += 1;
                 shoppingCart.cart[j].quantity += 1;
                 shoppingCart.cart[j].sum = shoppingCart.cart[j].price * shoppingCart.cart[j].quantity;
+                shoppingCart.cart[j].discount = (shoppingCart.cart[j].price - shoppingCart.cart[j].discountedPrice) * shoppingCart.cart[j].quantity;
                 for (i = 0; i < shoppingCart.cart.length; i++){
-                    shoppingCart.totalCost += shoppingCart.cart[i].sum;
+                    shoppingCart.totalCost += shoppingCart.cart[i].sum - shoppingCart.cart[i].discount;
+                    shoppingCart.totalDiscount += shoppingCart.cart[i].discount;
                 }
                 localStorage.setItem('cartStorage', JSON.stringify(shoppingCart));
                 renderShoppingBag();
@@ -105,10 +108,10 @@ for (var i =0; i < plus.length; i++) {
         }
     })
 }
+
 var minus = document.querySelectorAll('.quantity-minus');
 for (var i =0; i < minus.length; i++) {
     minus[i].addEventListener('click', function () {
-        shoppingCart.totalCost = 0;
         for (var j = 0; j < shoppingCart.cart.length; j++){
             if (+this.getAttribute('data-id') === shoppingCart.cart[j].id){
                 shoppingCart.totalCount--;
@@ -119,9 +122,10 @@ for (var i =0; i < minus.length; i++) {
                 if (shoppingCart.totalCount < 0){
                     shoppingCart.totalCount = 0
                 }
-                shoppingCart.cart[j].sum = shoppingCart.cart[j].price * shoppingCart.cart[j].quantity;
-                for (i = 0; i < shoppingCart.cart.length; i++){
-                    shoppingCart.totalCost -= shoppingCart.cart[i].sum;
+                shoppingCart.cart[j].discount = (shoppingCart.cart[j].price - shoppingCart.cart[j].discountedPrice) * shoppingCart.cart[j].quantity;
+                for (i = 0; i < shoppingCart.cart.length; i++) {
+                    shoppingCart.totalCost -= shoppingCart.cart[i].price - shoppingCart.cart[i].discount;
+                    shoppingCart.totalDiscount = shoppingCart.cart[i].discount;
                 }
                 localStorage.setItem('cartStorage', JSON.stringify(shoppingCart));
                 renderShoppingBag();
@@ -131,7 +135,6 @@ for (var i =0; i < minus.length; i++) {
     })
 }
 
-
 var quantity = document.querySelectorAll('.quantity');
 for (i = 0; i < quantity.length; i++){
     quantity[i].textContent = shoppingCart.cart[i].quantity;
@@ -139,3 +142,5 @@ for (i = 0; i < quantity.length; i++){
 
 var totalCartPrice = document.querySelector('#total-price');
 totalCartPrice.textContent = `£${shoppingCart.totalCost.toFixed(2)}`;
+var totalCartDiscount = document.querySelector('#discount');
+totalCartDiscount.textContent = `£${shoppingCart.totalDiscount.toFixed(2)}`;

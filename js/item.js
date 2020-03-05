@@ -133,7 +133,7 @@ var addItemButton = document.querySelector('.bottom-section__button');
 if (addItemButton) {
     addItemButton.addEventListener('click', function () {
         window.cartStorage.addItemToCart(cloneObject(getItem()));
-        window.updateTotals(window.cartStorage.totalCost, cartStorage.totalCount);
+        window.updateTotals(window.cartStorage.totalCost, window.cartStorage.totalCount, window.cartStorage.totalDiscount);
         document.location.href = 'shopping-bag.html';
     })
 }
@@ -189,26 +189,32 @@ var storage = {
         cart: storage.cartProps.cart || [],
         totalCost: storage.cartProps.totalCost || 0,
         totalCount: storage.cartProps.totalCount || 0,
+        totalDiscount: storage.cartProps.totalDiscount || 0,
         addItemToCart:
             function (item) {
                 item.id = this.cart.length;
                 this.cart.push(item);
                 item.quantity = 1;
-                item.sum = item.price * item.quantity;
+                if (item.discountedPrice !== item.price){
+                    item.sum = item.discountedPrice * item.quantity;
+                } else {
+                    item.sum = item.price * item.quantity;
+                }
                 this.totalCost += item.sum;
                 this.totalCount += 1;
-                updateState(this.cart, this.totalCost, this.totalCount);
+                this.totalDiscount += (item.price - item.discountedPrice) * item.quantity;
+                updateState(this.cart, this.totalCost, this.totalCount, this.totalDiscount);
             }
     };
 
-    function updateState(cart, totalCost, totalCount) {
+    function updateState(cart, totalCost, totalCount, totalDiscount) {
         storage.cartProps = {
             cart: cart,
             totalCost: totalCost,
-            totalCount: totalCount
+            totalCount: totalCount,
+            totalDiscount: totalDiscount
         };
     }
-
     window.cartStorage = cartStorage;
 })();
 

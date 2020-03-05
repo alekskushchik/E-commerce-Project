@@ -32,8 +32,8 @@ p.new-icon {
 }
 span.discount {
     display: inline-block;
-    position: relative;
-    left: -15px;
+    position: absolute;
+    left: 35px;
     font-family: 'Roboto-Regular', sans-serif;
     font-size: 14px;
     letter-spacing: .03em;
@@ -200,7 +200,7 @@ span.discount img {
         padding-left: 18px;
         border-radius: 0;
         border: none;
-        background: transparent url("../img/desktop/filter.png") no-repeat 90% center;
+        background: transparent url("../img/icons/filter.png") no-repeat 90% center;
         -webkit-appearance: none;
         -moz-appearance: none;
         outline: none;
@@ -217,7 +217,7 @@ span.discount img {
         display: none;
     }
     .filter-selection:hover {
-        background: #e5e5e5 url("../img/desktop/filter.png") no-repeat 90% center;
+        background: #e5e5e5 url("../img/icons/filter.png") no-repeat 90% center;
         cursor: pointer;
     }
     .filter-selection option:checked {
@@ -266,8 +266,12 @@ span.discount img {
         flex-wrap: wrap;
         justify-content: center;
     }
+    .selecting-filters-container {
+        margin-bottom: 10px;
+    }
     .filter-selection {
         width: 33.33%;
+        height: 30px;
         font-size: 10px;
         padding-left: 5px;
         word-break: break-word;

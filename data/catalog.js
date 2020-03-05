@@ -11,7 +11,7 @@ window.catalog = [{
     colors: [],
     sizes: [],
     thumbnail: 'img/items/item_9.png', // replace with path to image extracted from catalog layout
-    preview: ['img/desktop/photo-8.png', 'img/desktop/photo-8.png', 'img/desktop/photo-8.png'] // replace with paths to images extracted from item layout
+    preview: ['img/full/photo-8.png', 'img/full/photo-8.png', 'img/full/photo-8.png'] // replace with paths to images extracted from item layout
 }, {
     id: '07cf6ce2-6eee-4e78-a441-f257fdea7ed6',
     dateAdded: '2017-06-12T15:35:13.000Z',
@@ -39,7 +39,7 @@ window.catalog = [{
     colors: [],
     sizes: [],
     thumbnail: 'img/items/item_13.png', // replace with image extracted from item layout
-    preview: ['img/desktop/photo-12.png', 'img/desktop/photo-12.png', 'img/desktop/photo-12.png'] // replace with paths to images extracted from item layout
+    preview: ['img/full/photo-12.png', 'img/full/photo-12.png', 'img/full/photo-12.png'] // replace with paths to images extracted from item layout
 }, {
     id: '4a3d3c3e-9dc5-4d99-b33d-42b22e20dc0b',
     dateAdded: '2017-08-02T15:00:40.000Z',
@@ -151,7 +151,7 @@ window.catalog = [{
     colors: ['Dark Blue'],
     sizes: ['UK 19'],
     thumbnail: 'img/items/item_12.png', // replace with image extracted from item layout
-    preview: ['img/desktop/photo-11.png', 'img/desktop/photo-11.png', 'img/desktop/photo-11.png'] // replace with paths to images extracted from item layout
+    preview: ['img/full/photo-11.png', 'img/full/photo-11.png', 'img/full/photo-11.png'] // replace with paths to images extracted from item layout
 }, {
     id: 'ccc8a5d5-7cdf-4706-95f2-abc64761400d',
     dateAdded: '2017-06-09T17:32:17.000Z',
@@ -179,7 +179,7 @@ window.catalog = [{
     colors: ['Raw umber', 'Dark blue'],
     sizes: ['UK 18', 'UK 19'],
     thumbnail: 'img/items/item_10.png', // replace with image extracted from item layout
-    preview: ['img/desktop/photo-9.png', 'img/desktop/photo-9.png', 'img/desktop/photo-9.png'] // replace with paths to images extracted from item layout
+    preview: ['img/full/photo-9.png', 'img/full/photo-9.png', 'img/full/photo-9.png'] // replace with paths to images extracted from item layout
 }, {
     id: 'ff665110-5e7f-435d-b1b4-651c3d5050ca',
     dateAdded: '2017-04-05T10:04:16.000Z',
@@ -193,5 +193,5 @@ window.catalog = [{
     colors: ['Blue'],
     sizes: ['UK 18'],
     thumbnail: 'img/items/item_11.png', // replace with image extracted from item layout
-    preview: ['img/desktop/photo-10.png', 'img/desktop/photo-10.png', 'img/desktop/photo-10.png'] // replace with paths to images extracted from item layout
+    preview: ['img/full/photo-10.png', 'img/full/photo-10.png', 'img/full/photo-10.png'] // replace with paths to images extracted from item layout
 }];

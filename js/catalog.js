@@ -53,7 +53,7 @@ sortByArrivals();
                 "<div class=\"catalog-image\">" +
                 "<a href=\"item.html#id=" + products[i].id + "\"><img src=\"" + products[i].thumbnail + "\" alt=\"\">" +
                 "<p>View item</p></a></div>" + "<div class=\"catalog-info\">" +
-                "<h4>" + products[i].title + "</h4>" + "<p><span class='discount'><img src=\"img/desktop/crossline.png\" alt=\"\">" + "£" + products[i].discountedPrice + "</span>" + "£" + products[i].price.toFixed(2) + "</p>" + "</div>" +
+                "<h4>" + products[i].title + "</h4>" + "<p><span class='discount'><img src=\"img/icons/crossline.png\" alt=\"\">" + "£" + products[i].discountedPrice + "</span>" + "£" + products[i].price.toFixed(2) + "</p>" + "</div>" +
                 "</div>";
     }
     beforePromo.innerHTML = htmlBeforePromo;
@@ -71,7 +71,7 @@ sortByArrivals();
                 "<div class=\"catalog-image\">" +
                 "<a href=\"item.html#id=" + products[i].id + "\"><img src=\"" + products[i].thumbnail + "\" alt=\"\">" +
                 "<p>View item</p></a></div>" + "<div class=\"catalog-info\">" +
-                "<h4>" + products[i].title + "</h4>" + "<p><span class='discount'><img src=\"img/desktop/crossline.png\" alt=\"\">" + "£" + products[i].discountedPrice + "</span>" + "£" + products[i].price.toFixed(2) + "</p>" + "</div>" +
+                "<h4>" + products[i].title + "</h4>" + "<p><span class='discount'><img src=\"img/icons/crossline.png\" alt=\"\">" + "£" + products[i].discountedPrice + "</span>" + "£" + products[i].price.toFixed(2) + "</p>" + "</div>" +
                 "</div>";
     }
     afterPromo.innerHTML = htmlAfterPromo;
