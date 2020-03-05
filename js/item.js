@@ -4,11 +4,12 @@ var shoppingCart = JSON.parse(localStorage.getItem('cartStorage'));
 var burgerIcon = document.querySelector("#dropdown-button");
 var closeBurgerIcon = document.querySelector("#close-dropdown");
 var menuContainer = document.querySelector(".navigation-menu");
+var _size, _color;
 
 burgerIcon.addEventListener('click', toggleNavigationMenu);
 closeBurgerIcon.addEventListener('click', toggleNavigationMenu);
 
-function toggleNavigationMenu () {
+function toggleNavigationMenu() {
     if (menuContainer.style.display === 'block') {
         menuContainer.style.display = 'none';
         burgerIcon.classList.toggle('hidden');
@@ -40,17 +41,21 @@ function toggleNavigationMenu () {
                 <button class="item-prop size" type="button" disabled>not in stock</button>`;
                 var color = `<span>Color:</span>
                 <button class="item-prop color" type="button" disabled>not in stock</button>`;
+                var addBtn = `<button class="bottom-section__button" type="button" disabled>Add to bag</button>`
             } else {
                 size = `<span>Size:</span>
                 <button class="item-prop size chosen-prop" type="button" value="${products[i].sizes[0]}">${products[i].sizes[0]}</button>`;
                 for (var j = 1; j < products[i].sizes.length; j++) {
-                    size += `<button class="item-prop size" type="button" value="${products[i].sizes[j]}">${products[i].sizes[j]}</button>`;
+                size += `<button class="item-prop size" type="button" value="${products[i].sizes[j]}">${products[i].sizes[j]}</button>`;
                 }
                 color = `<span>Color:</span>
             <button class="item-prop color chosen-prop" type="button" value="${products[i].colors[0]}">${products[i].colors[0]}</button>`;
                 for (var k = 1; k < products[i].colors.length; k++) {
                     color += `<button class="item-prop color" type="button" value="${products[i].colors[k]}">${products[i].colors[k]}</button>`;
                 }
+                _size = products[i].sizes[0];
+                _color = products[i].colors[0];
+                addBtn = `<button class="bottom-section__button" type="button">Add to bag</button>`
             }
             out += `
        <div class="item-gallery">
@@ -67,7 +72,7 @@ function toggleNavigationMenu () {
             <span>&#163;${products[i].price.toFixed(2)}</span>
             <div class="item-info__size">${size}</div>
             <div class="item-info__color">${color}</div>
-            <button class="bottom-section__button" type="button">Add to bag</button>
+            ${addBtn}
         </div>`;
         }
     }
@@ -106,6 +111,11 @@ var buttonsContainer = document.querySelector('.item-info');
 if (buttonsContainer) {
     buttonsContainer.addEventListener('click', function (e) {
         if (e.target.classList.contains('item-prop')) {
+            if (e.target.classList.contains('size')) {
+                _size = e.target.value;
+            } else if (e.target.classList.contains('color')) {
+                _color = e.target.value;
+            }
             changeActiveButton(e.target);
         }
     });
@@ -128,12 +138,15 @@ if (addItemButton) {
     })
 }
 
+
 function cloneObject(object) {
     var obj = {};
     var properties = Object.getOwnPropertyNames(object);
     for (var i = 0; i < properties.length; i++) {
         obj[properties[i]] = object[properties[i]]
     }
+    obj['sizes'] = _size;
+    obj['colors'] = _color;
     return obj;
 }
 
@@ -172,21 +185,21 @@ var storage = {
 };
 
 (function () {
-         var cartStorage =  {
-            cart: storage.cartProps.cart || [],
-            totalCost: storage.cartProps.totalCost || 0,
-            totalCount: storage.cartProps.totalCount || 0,
-            addItemToCart:
-                function(item) {
-                    item.id = this.cart.length;
-                    item.quantity = 1;
-                    item.sum = item.price * item.quantity;
-                    this.cart.push(item);
-                    this.totalCost += item.sum;
-                    this.totalCount += 1;
-                    updateState(this.cart, this.totalCost, this.totalCount);
-                }
-        };
+    var cartStorage = {
+        cart: storage.cartProps.cart || [],
+        totalCost: storage.cartProps.totalCost || 0,
+        totalCount: storage.cartProps.totalCount || 0,
+        addItemToCart:
+            function (item) {
+                item.id = this.cart.length;
+                this.cart.push(item);
+                item.quantity = 1;
+                item.sum = item.price * item.quantity;
+                this.totalCost += item.sum;
+                this.totalCount += 1;
+                updateState(this.cart, this.totalCost, this.totalCount);
+            }
+    };
 
     function updateState(cart, totalCost, totalCount) {
         storage.cartProps = {
@@ -195,8 +208,10 @@ var storage = {
             totalCount: totalCount
         };
     }
+
     window.cartStorage = cartStorage;
 })();
+
 
 window.updateTotals = function (totalCost, totalCount) {
     var totalCostField = document.querySelector('#total-cost');

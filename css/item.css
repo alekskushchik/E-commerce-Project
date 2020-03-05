@@ -109,6 +109,7 @@ button.item-prop {
     font-size: 14px;
     letter-spacing: 0.03em;
     box-sizing: border-box;
+    background: transparent;
     border: 1px solid transparent;
 }
 

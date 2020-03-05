@@ -124,7 +124,7 @@ span.discount img {
     left: 50%;
     transform: translate(-50%, 0);
     font-family: 'OpenSans-Bold', sans-serif;
-    font-size: 3vw;
+    font-size: 28px;
     text-align: center;
     letter-spacing: .03em;
 }
