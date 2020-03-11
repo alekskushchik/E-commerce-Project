@@ -198,6 +198,7 @@ var storage = {
             item.id = this.cart.length;
             this.cart.push(item);
             item.quantity = 1;
+            item.discount = 0;
 
             if (item.discountedPrice !== item.price) {
                 item.sum = item.discountedPrice * item.quantity;
